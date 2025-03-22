@@ -1,0 +1,121 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: source/images
+public_folder: /
+enabled: true
+collections:
+  - name: all_posts
+    fields: &ref_0
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+        dateFormat: YYYY-MM-DD
+        timeFormat: HH:mm:ss
+        format: YYYY-MM-DD HH:mm:ss
+        required: false
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+      - label: Categories
+        name: categories
+        widget: list
+        required: false
+      - label: Body
+        name: body
+        widget: markdown
+        required: false
+      - label: Permalink
+        name: permalink
+        widget: string
+        required: false
+      - label: Comments
+        name: comments
+        widget: boolean
+        default: true
+        required: false
+    label: Post
+    folder: source/_posts
+    create: true
+    editor:
+      preview: true
+  - label: Page
+    name: pages
+    delete: false
+    files:
+      - name: Gallery-games.md
+        label: 我的世界
+        file: source/Gallery/games.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: Gallery-genshin.md
+        label: 原神
+        file: source/Gallery/genshin.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: Gallery-honkai-starrail.md
+        label: 崩铁
+        file: source/Gallery/honkai-starrail.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: Gallery-index.md
+        label: 图库
+        file: source/Gallery/index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: Gallery-wallpaper.md
+        label: 壁纸
+        file: source/Gallery/wallpaper.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: about-index.md
+        label: 关于
+        file: source/about/index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: archives-index.md
+        label: 归档
+        file: source/archives/index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: categories-index.md
+        label: 分类
+        file: source/categories/index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: movies-index.md
+        label: 视频
+        file: source/movies/index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: music-index.md
+        label: 音乐
+        file: source/music/index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: link-index.md
+        label: 传送门
+        file: source/link/index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: tags-index.md
+        label: 标签
+        file: source/tags/index.md
+        editor:
+          preview: true
+        fields: *ref_0
