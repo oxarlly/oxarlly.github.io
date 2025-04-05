@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html style="margin: 0; padding: 0; height: 100%; overflow: hidden">
+<head>
+    <style>
+        iframe {
+            border: none;
+            width: 100vw;
+            height: 100vh;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // 域名检测与框架嵌套
+    const host = window.location.hostname;
+    let frameUrl = '';
+
+    if (host === 'oxarlly.github.io') {
+        frameUrl = 'https://oxarlly.github.io/admin/a.html';
+    } else if (host === 'senchin.netlify.app') {
+        frameUrl = 'https://senchin.netlify.app/admin/b.html';
+    }
+
+    if (frameUrl) {
+        const iframe = document.createElement('iframe');
+        iframe.src = frameUrl;
+        document.body.appendChild(iframe);
+    }
+</script>
+</body>
+</html>

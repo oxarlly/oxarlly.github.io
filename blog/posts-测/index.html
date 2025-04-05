@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例) | 千顷文化</title><meta name="author" content="無量 — Multitudinous"><meta name="copyright" content="無量 — Multitudinous"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="引言React Hooks 已经成为 React 开发中不可或缺的一部分。 它们让函数组件也能拥有 state 和生命周期方法，极大地提高了代码的可复用性和可维护性。 本文将分享 5 个我经常使用的 React Hooks 技巧，可以帮助你提高开发效率，写出更简洁、更易于维护的代码。 为了让学习过程更有趣，我们还会用 React Hooks 实现一个简单的 “猜数字” 游戏！ 1. 使用 useC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)">
+<meta property="og:url" content="https://oxarlly.github.io/blog/posts-%E6%B5%8B/index.html">
+<meta property="og:site_name" content="千顷文化">
+<meta property="og:description" content="引言React Hooks 已经成为 React 开发中不可或缺的一部分。 它们让函数组件也能拥有 state 和生命周期方法，极大地提高了代码的可复用性和可维护性。 本文将分享 5 个我经常使用的 React Hooks 技巧，可以帮助你提高开发效率，写出更简洁、更易于维护的代码。 为了让学习过程更有趣，我们还会用 React Hooks 实现一个简单的 “猜数字” 游戏！ 1. 使用 useC">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oxarlly.github.io/media/avatar-o.jpg">
+<meta property="article:published_time" content="2025-04-05T08:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-05T07:25:15.934Z">
+<meta property="article:author" content="無量 — Multitudinous">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="Hooks">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="效率">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="游戏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oxarlly.github.io/media/avatar-o.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)",
+  "url": "https://oxarlly.github.io/blog/posts-%E6%B5%8B/",
+  "image": "https://oxarlly.github.io/media/avatar-o.jpg",
+  "datePublished": "2025-04-05T08:00:00.000Z",
+  "dateModified": "2025-04-05T07:25:15.934Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "無量 — Multitudinous",
+      "url": "https://oxarlly.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://oxarlly.github.io/media/favicon.png"><link rel="canonical" href="https://oxarlly.github.io/blog/posts-%E6%B5%8B/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+          
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script>console.log('[Butterfly] Netlify CMS 已禁用（GitHub Pages 环境）')</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://oxarlly.github.io/media/avatar-o.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 存档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-timeline"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">千顷文化</span></a><a class="nav-page-title" href="/"><span class="site-name">5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 存档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-timeline"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-05T08:00:00.000Z" title="发表于 2025-04-05 08:00:00">2025-04-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-05T07:25:15.934Z" title="更新于 2025-04-05 07:25:15">2025-04-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React/">React</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>React Hooks 已经成为 React 开发中不可或缺的一部分。 它们让函数组件也能拥有 state 和生命周期方法，极大地提高了代码的可复用性和可维护性。 本文将分享 5 个我经常使用的 React Hooks 技巧，可以帮助你提高开发效率，写出更简洁、更易于维护的代码。 为了让学习过程更有趣，我们还会用 React Hooks 实现一个简单的 “猜数字” 游戏！</p>
+<h2 id="1-使用-useCallback-避免不必要的渲染"><a href="#1-使用-useCallback-避免不必要的渲染" class="headerlink" title="1. 使用 useCallback 避免不必要的渲染"></a>1. 使用 <code>useCallback</code> 避免不必要的渲染</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>当你将一个函数作为 prop 传递给子组件时，每次父组件重新渲染，该函数都会被重新创建，导致子组件不必要的渲染。 这会降低应用的性能，尤其是在子组件比较复杂的情况下。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用 <code>useCallback</code> Hook 缓存函数，只有当依赖项发生变化时才重新创建函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useCallback &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ParentComponent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> handleClick = useCallback(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Button clicked&#x27;</span>);</span><br><span class="line">  &#125;, []); <span class="comment">// 依赖项为空，handleClick 函数只会被创建一次</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">ChildComponent</span> <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ChildComponent</span>(<span class="params">&#123; onClick &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ChildComponent rendered&#x27;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;onClick&#125;</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%B5%8B/snapshots-default.png" alt="useCallback 示意图"></p>
+<ul>
+<li><strong>代码解释：</strong><ul>
+<li><code>useCallback</code> 接收两个参数：<ul>
+<li>第一个参数是要缓存的函数。</li>
+<li>第二个参数是依赖项数组。 只有当依赖项数组中的值发生变化时，<code>useCallback</code> 才会重新创建函数。</li>
+</ul>
+</li>
+<li>在本例中，依赖项数组为空，因此 <code>handleClick</code> 函数只会被创建一次。</li>
+</ul>
+</li>
+</ul>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><code>useCallback</code> 返回一个 memoized 回调函数。 Memoization 是一种优化技术，它将函数的计算结果缓存起来，当下次使用相同的参数调用该函数时，直接返回缓存的结果，而不需要重新计算。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>避免子组件不必要的渲染，提高性能。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>需要手动管理依赖项。 如果依赖项数组中的值没有正确设置，可能会导致缓存失效，反而降低性能。</li>
+</ul>
+<h3 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul>
+<li>只在需要避免不必要渲染的情况下使用 <code>useCallback</code>。</li>
+<li>仔细检查依赖项数组，确保包含所有需要监听的值。</li>
+<li>可以使用 ESLint 插件 (例如 <code>eslint-plugin-react-hooks</code>) 来检查 Hooks 的使用是否正确。</li>
+</ul>
+<h2 id="2-使用-useMemo-缓存计算结果"><a href="#2-使用-useMemo-缓存计算结果" class="headerlink" title="2. 使用 useMemo 缓存计算结果"></a>2. 使用 <code>useMemo</code> 缓存计算结果</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>当你需要进行复杂的计算时，每次组件重新渲染，都会重新计算，影响性能。 例如，对一个大型数组进行排序或过滤。</p>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用 <code>useMemo</code> Hook 缓存计算结果，只有当依赖项发生变化时才重新计算。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useMemo, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Component</span>(<span class="params">&#123; list &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [sortOrder, setSortOrder] = useState(<span class="string">&#x27;asc&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> sortedList = useMemo(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Sorting list&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> newList = [...list]; <span class="comment">// Create a copy to avoid mutating the original array</span></span><br><span class="line">    <span class="keyword">return</span> newList.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (sortOrder === <span class="string">&#x27;asc&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> b - a;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;); <span class="comment">// 模拟复杂计算</span></span><br><span class="line">  &#125;, [list, sortOrder]); <span class="comment">// 只有当 list 或 sortOrder 发生变化时才重新计算</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setSortOrder(sortOrder === <span class="string">&#x27;asc&#x27;</span> ? <span class="string">&#x27;desc&#x27;</span> : <span class="string">&#x27;asc&#x27;</span>)&#125;&gt;</span><br><span class="line">        Change Sort Order</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &#123;sortedList.map(<span class="function"><span class="params">item</span> =&gt;</span> (</span><br><span class="line">          &lt;li key=&#123;item&#125;&gt;&#123;item&#125;&lt;/li&gt;</span><br><span class="line">        ))&#125;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%B5%8B/useMemo.png" alt="useMemo 示意图"></p>
+<ul>
+<li><strong>代码解释：</strong><ul>
+<li><code>useMemo</code> 接收两个参数：<ul>
+<li>第一个参数是要缓存的计算函数。</li>
+<li>第二个参数是依赖项数组。 只有当依赖项数组中的值发生变化时，<code>useMemo</code> 才会重新计算。</li>
+</ul>
+</li>
+<li>在本例中，只有当 <code>list</code> 或 <code>sortOrder</code> 发生变化时，才会重新对 <code>list</code> 进行排序。</li>
+</ul>
+</li>
+</ul>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p><code>useMemo</code> 返回一个 memoized 值。 与 <code>useCallback</code> 类似，<code>useMemo</code> 也使用了 memoization 技术。</p>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>避免重复计算，提高性能。</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>需要手动管理依赖项。</li>
+</ul>
+<h3 id="最佳实践-1"><a href="#最佳实践-1" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul>
+<li>只在计算量比较大的情况下使用 <code>useMemo</code>。</li>
+<li>避免在 <code>useMemo</code> 中执行副作用操作。</li>
+<li>仔细检查依赖项数组，确保包含所有需要监听的值。</li>
+</ul>
+<h2 id="3-自定义-Hook-提取逻辑"><a href="#3-自定义-Hook-提取逻辑" class="headerlink" title="3. 自定义 Hook 提取逻辑"></a>3. 自定义 Hook 提取逻辑</h2><h3 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h3><p>在多个组件中重复使用相同的逻辑，导致代码冗余，难以维护。 例如，从 API 获取数据、处理表单输入等。</p>
+<h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><p>创建自定义 Hook 提取可复用的逻辑。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useFetch</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [data, setData] = useState(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> [loading, setLoading] = useState(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">const</span> [error, setError] = useState(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setLoading(<span class="literal">true</span>);</span><br><span class="line">    fetch(url)</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!res.ok) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`HTTP error! Status: <span class="subst">$&#123;res.status&#125;</span>`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.json();</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        setData(data);</span><br><span class="line">        setLoading(<span class="literal">false</span>);</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        setError(err);</span><br><span class="line">        setLoading(<span class="literal">false</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;, [url]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123; data, loading, error &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Component</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; data, loading, error &#125; = useFetch(<span class="string">&#x27;https://api.example.com/data&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (loading) <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Error: &#123;error.message&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;data &amp;&amp; data.map(<span class="function"><span class="params">item</span> =&gt;</span> (</span><br><span class="line">        &lt;li key=&#123;item.id&#125;&gt;&#123;item.name&#125;&lt;/li&gt;</span><br><span class="line">      ))&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>![自定义 Hook 示意图](images&#x2F;测&#x2F;自定义 Hook.png)</p>
+<ul>
+<li><strong>代码解释：</strong><ul>
+<li><code>useFetch</code> Hook 封装了从 API 获取数据的逻辑。</li>
+<li>它接收一个 <code>url</code> 参数，并返回 <code>data</code>、<code>loading</code> 和 <code>error</code> 三个状态。</li>
+<li><code>Component</code> 组件使用 <code>useFetch</code> Hook 获取数据，并根据状态显示不同的内容。</li>
+</ul>
+</li>
+</ul>
+<h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><p>自定义 Hook 本质上是一个函数，它以 <code>use</code> 开头，并且可以调用其他的 Hook。</p>
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>提高代码复用性，减少代码冗余。</li>
+<li>使组件更简洁，更易于理解。</li>
+<li>提高代码的可测试性。</li>
+</ul>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>需要仔细设计 Hook 的 API。</li>
+<li>过度使用自定义 Hook 可能会导致代码难以理解。</li>
+</ul>
+<h3 id="最佳实践-2"><a href="#最佳实践-2" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul>
+<li>只提取可复用的逻辑到自定义 Hook 中。</li>
+<li>为自定义 Hook 提供清晰的 API。</li>
+<li>编写单元测试来测试自定义 Hook。</li>
+</ul>
+<h2 id="4-使用-useRef-访问-DOM-元素"><a href="#4-使用-useRef-访问-DOM-元素" class="headerlink" title="4. 使用 useRef 访问 DOM 元素"></a>4. 使用 <code>useRef</code> 访问 DOM 元素</h2><h3 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h3><p>需要直接访问 DOM 元素，例如获取输入框的值、控制滚动条的位置或实现焦点管理。</p>
+<h3 id="解决方案-3"><a href="#解决方案-3" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用 <code>useRef</code> Hook 创建一个 ref 对象，并将其绑定到 DOM 元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useRef, useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Component</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = useRef(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    inputRef.current.focus(); <span class="comment">// 组件挂载后自动聚焦输入框</span></span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;inputRef&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%B5%8B/useRef.png" alt="useRef 示意图"></p>
+<ul>
+<li><strong>代码解释：</strong><ul>
+<li><code>useRef(null)</code> 创建一个 ref 对象，初始值为 <code>null</code>。</li>
+<li><code>ref=&#123;inputRef&#125;</code> 将 ref 对象绑定到 input 元素。</li>
+<li><code>inputRef.current</code> 指向 input 元素。</li>
+<li><code>useEffect</code> 在组件挂载后执行，<code>inputRef.current.focus()</code> 使输入框获得焦点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="原理-3"><a href="#原理-3" class="headerlink" title="原理"></a>原理</h3><p><code>useRef</code> 返回一个可变的 ref 对象，它的 <code>.current</code> 属性可以被修改，并且不会触发组件重新渲染。</p>
+<h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>可以直接访问 DOM 元素。</li>
+<li>可以在组件的整个生命周期内保存值。</li>
+</ul>
+<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>需要小心使用，避免直接操作 DOM 元素导致的问题。 例如，直接修改 DOM 元素的样式可能会与 React 的虚拟 DOM 机制冲突。</li>
+</ul>
+<h3 id="最佳实践-3"><a href="#最佳实践-3" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul>
+<li>只在必要的情况下使用 <code>useRef</code> 访问 DOM 元素。</li>
+<li>避免在 <code>useEffect</code> 中直接操作 DOM 元素，可以使用 <code>requestAnimationFrame</code> 来优化性能。</li>
+</ul>
+<h2 id="5-使用-useContext-共享状态"><a href="#5-使用-useContext-共享状态" class="headerlink" title="5. 使用 useContext 共享状态"></a>5. 使用 <code>useContext</code> 共享状态</h2><h3 id="问题-4"><a href="#问题-4" class="headerlink" title="问题"></a>问题</h3><p>需要在多个组件之间共享状态，例如用户登录信息、主题颜色或语言设置。 使用 props 逐层传递状态比较繁琐，难以维护。</p>
+<h3 id="解决方案-4"><a href="#解决方案-4" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用 <code>useContext</code> Hook 和 Context API 共享状态。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; createContext, useContext, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ThemeContext = createContext(<span class="string">&#x27;light&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ThemeProvider</span>(<span class="params">&#123; children &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [theme, setTheme] = useState(<span class="string">&#x27;light&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ThemeContext.Provider value=&#123;&#123; theme, setTheme &#125;&#125;&gt;</span><br><span class="line">      &#123;children&#125;</span><br><span class="line">    &lt;/ThemeContext.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Component</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; theme, setTheme &#125; = useContext(ThemeContext);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;Current theme: &#123;theme&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setTheme(theme === <span class="string">&#x27;light&#x27;</span> ? <span class="string">&#x27;dark&#x27;</span> : <span class="string">&#x27;light&#x27;</span>)&#125;&gt;</span><br><span class="line">        Toggle theme</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ThemeProvider&gt;</span><br><span class="line">      &lt;Component /&gt;</span><br><span class="line">    &lt;/ThemeProvider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%B5%8B/useContext.png" alt="useContext 示意图"></p>
+<ul>
+<li><strong>代码解释：</strong><ul>
+<li><code>createContext(&#39;light&#39;)</code> 创建一个 Context 对象，初始值为 <code>&#39;light&#39;</code>。</li>
+<li><code>ThemeProvider</code> 组件使用 <code>ThemeContext.Provider</code> 提供状态，<code>value</code> 属性指定要共享的状态。</li>
+<li><code>Component</code> 组件使用 <code>useContext(ThemeContext)</code> 获取状态。</li>
+</ul>
+</li>
+</ul>
+<h3 id="原理-4"><a href="#原理-4" class="headerlink" title="原理"></a>原理</h3><p>Context API 提供了一种在组件树中共享状态的方式，而不需要手动地通过 props 逐层传递状态。</p>
+<h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>方便地在多个组件之间共享状态，避免了 props 逐层传递。</li>
+<li>使代码更简洁，更易于理解。</li>
+</ul>
+<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>可能会导致组件过度渲染。 当 Context 的值发生变化时，所有使用该 Context 的组件都会重新渲染。</li>
+</ul>
+<h3 id="最佳实践-4"><a href="#最佳实践-4" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul>
+<li>只在需要在多个组件之间共享状态的情况下使用 Context API。</li>
+<li>避免将频繁变化的状态放在 Context 中。</li>
+<li>可以使用 <code>useReducer</code> Hook 来管理 Context 中的复杂状态。</li>
+</ul>
+<h2 id="额外奖励：使用-React-Hooks-实现-“猜数字”-游戏"><a href="#额外奖励：使用-React-Hooks-实现-“猜数字”-游戏" class="headerlink" title="额外奖励：使用 React Hooks 实现 “猜数字” 游戏"></a>额外奖励：使用 React Hooks 实现 “猜数字” 游戏</h2><h3 id="游戏介绍"><a href="#游戏介绍" class="headerlink" title="游戏介绍"></a>游戏介绍</h3><p>这是一个经典的猜数字游戏。 计算机随机生成一个 1 到 100 之间的整数，玩家需要猜测这个数字。 每次猜测后，计算机会给出提示：猜测的数字太高或太低。 玩家需要在限定的次数内猜中这个数字。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useRef, useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GuessTheNumber</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [secretNumber, setSecretNumber] = useState(generateSecretNumber());</span><br><span class="line">  <span class="keyword">const</span> [guess, setGuess] = useState(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> [guessesRemaining, setGuessesRemaining] = useState(<span class="number">7</span>); <span class="comment">// 限制猜测次数</span></span><br><span class="line">  <span class="keyword">const</span> inputRef = useRef(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 生成 1 到 100 之间的随机整数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">generateSecretNumber</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">100</span>) + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 处理猜测</span></span><br><span class="line">  <span class="keyword">const</span> handleGuess = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> parsedGuess = <span class="built_in">parseInt</span>(guess, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">isNaN</span>(parsedGuess) || parsedGuess &lt; <span class="number">1</span> || parsedGuess &gt; <span class="number">100</span>) &#123;</span><br><span class="line">      setMessage(<span class="string">&#x27;请输入 1 到 100 之间的有效数字&#x27;</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (parsedGuess === secretNumber) &#123;</span><br><span class="line">      setMessage(<span class="string">`恭喜你猜对了！ 答案是 <span class="subst">$&#123;secretNumber&#125;</span>`</span>);</span><br><span class="line">      setGuessesRemaining(<span class="number">0</span>); <span class="comment">// 禁用输入</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (parsedGuess &lt; secretNumber) &#123;</span><br><span class="line">      setMessage(<span class="string">&#x27;太低了！&#x27;</span>);</span><br><span class="line">      setGuessesRemaining(guessesRemaining - <span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      setMessage(<span class="string">&#x27;太高了！&#x27;</span>);</span><br><span class="line">      setGuessesRemaining(guessesRemaining - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setGuess(<span class="string">&#x27;&#x27;</span>); <span class="comment">// 清空输入框</span></span><br><span class="line">    inputRef.current.focus(); <span class="comment">// 聚焦输入框</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 重置游戏</span></span><br><span class="line">  <span class="keyword">const</span> handleReset = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setSecretNumber(generateSecretNumber());</span><br><span class="line">    setGuess(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    setMessage(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    setGuessesRemaining(<span class="number">7</span>);</span><br><span class="line">    inputRef.current.focus();</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    inputRef.current.focus(); <span class="comment">// 初始聚焦输入框</span></span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h2&gt;猜数字游戏&lt;/h2&gt;</span><br><span class="line">      &lt;p&gt;我心里有一个 <span class="number">1</span> 到 <span class="number">100</span> 之间的数字。 你有 &#123;guessesRemaining&#125; 次机会猜中它！&lt;/p&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;number&quot;</span></span><br><span class="line">        value=&#123;guess&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setGuess(e.target.value)&#125;</span><br><span class="line">        ref=&#123;inputRef&#125;</span><br><span class="line">        disabled=&#123;guessesRemaining === <span class="number">0</span>&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleGuess&#125; disabled=&#123;guessesRemaining === <span class="number">0</span>&#125;&gt;</span><br><span class="line">        猜测</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;p&gt;&#123;message&#125;&lt;/p&gt;</span><br><span class="line">      &#123;guessesRemaining === <span class="number">0</span> &amp;&amp; (</span><br><span class="line">        &lt;button onClick=&#123;handleReset&#125;&gt;重新开始&lt;/button&gt;</span><br><span class="line">      )&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> GuessTheNumber;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/placeholder_guessTheNumber.png" alt="猜数字游戏截图"></p>
+<h3 id="游戏原理"><a href="#游戏原理" class="headerlink" title="游戏原理"></a>游戏原理</h3><ol>
+<li><p><strong>状态管理：</strong></p>
+<ul>
+<li><code>secretNumber</code>: 使用 <code>useState</code> 存储计算机生成的随机数。</li>
+<li><code>guess</code>: 使用 <code>useState</code> 存储玩家输入的猜测。</li>
+<li><code>message</code>: 使用 <code>useState</code> 存储游戏提示信息。</li>
+<li><code>guessesRemaining</code>: 使用 <code>useState</code> 存储剩余的猜测次数。</li>
+</ul>
+</li>
+<li><p><strong>生成随机数：</strong></p>
+<ul>
+<li><code>generateSecretNumber</code> 函数生成 1 到 100 之间的随机整数。</li>
+</ul>
+</li>
+<li><p><strong>处理猜测：</strong></p>
+<ul>
+<li><code>handleGuess</code> 函数处理玩家的猜测：<ul>
+<li>验证输入是否有效。</li>
+<li>比较猜测与随机数。</li>
+<li>更新 <code>message</code> 和 <code>guessesRemaining</code> 状态。</li>
+<li>清空输入框并聚焦。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>重置游戏：</strong></p>
+<ul>
+<li><code>handleReset</code> 函数重置游戏状态。</li>
+</ul>
+</li>
+<li><p><strong>DOM 访问：</strong></p>
+<ul>
+<li><code>useRef</code> 用于访问输入框，并在游戏开始和每次猜测后聚焦。</li>
+</ul>
+</li>
+<li><p><strong>useEffect：</strong></p>
+<ul>
+<li>确保在组件首次渲染时，输入框获得焦点。</li>
+</ul>
+</li>
+</ol>
+<h3 id="如何在你的-Hexo-博客中使用这个游戏？"><a href="#如何在你的-Hexo-博客中使用这个游戏？" class="headerlink" title="如何在你的 Hexo 博客中使用这个游戏？"></a>如何在你的 Hexo 博客中使用这个游戏？</h3><ol>
+<li><p><strong>创建 React 组件：</strong> 将上面的代码保存为 <code>GuessTheNumber.js</code> 文件，并将其放在你的 React 项目的 <code>src/components</code> 目录下 (如果你的 Hexo 主题支持 React)。</p>
+</li>
+<li><p><strong>在 Markdown 文件中引入组件：</strong> 使用 Hexo 插件 (例如 <code>hexo-renderer-jsx</code>) 在 Markdown 文件中引入 React 组件。  具体方法取决于你使用的主题和插件。  通常你需要先安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-jsx</span><br></pre></td></tr></table></figure>
+
+<p>然后在 Markdown 文件中使用类似下面的语法引入组件：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">GuessTheNumber</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置 Webpack (如果需要)：</strong> 如果你的 Hexo 主题没有默认配置 Webpack，你可能需要手动配置 Webpack 来处理 React 组件。</p>
+</li>
+</ol>
+<p><strong>注意：</strong>  在 Hexo 博客中集成 React 组件可能需要一些额外的配置，具体步骤取决于你使用的主题和插件。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文分享了 5 个提升 React Hooks 开发效率的实用技巧，并用 React Hooks 实现了一个简单的 “猜数字” 游戏。 希望这些技巧能够帮助你写出更简洁、更易于维护的React 代码，并让你在学习过程中充满乐趣！</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/hooks-intro.html">React Hooks 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.example.com/blog/react-hooks-performance">使用 React Hooks 提高性能</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/context.html">React Context API</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/refs-and-the-dom.html">React Refs and the DOM</a></li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/React/">React</a><a class="post-meta__tags" href="/tags/Hooks/">Hooks</a><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a><a class="post-meta__tags" href="/tags/%E6%95%88%E7%8E%87/">效率</a><a class="post-meta__tags" href="/tags/%E6%8A%80%E5%B7%A7/">技巧</a><a class="post-meta__tags" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a></div><div class="post-share"><div class="social-share" data-image="https://oxarlly.github.io/media/avatar-o.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTAzNy8zNTQ5OQ=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://oxarlly.github.io/media/avatar-o.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">無量 — Multitudinous</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCupYS-zTTlOHHENztxWXI_Q"><i class="fab fa-youtube"></i><span>订阅</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/MS4wLjABAAAATK9ov0UNhsGTPkNDu9xcJN3lCeG7TT3ZBQmbgvpQrDHqAL_-LxPyL_M4aXJ6tsAA" target="_blank" title="抖音"><i class="fa-brands fa-tiktok"></i></a><a class="social-icon" href="https://x.com/oxarlly" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a class="social-icon" href="mailto:jianhua37212022@gmail.com" target="_blank" title="邮箱"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">投稿者上<a href="https://oxarlly.github.io/link/">扩列墙</a>！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-useCallback-%E9%81%BF%E5%85%8D%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E6%B8%B2%E6%9F%93"><span class="toc-number">2.</span> <span class="toc-text">1. 使用 useCallback 避免不必要的渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">2.4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">2.5.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">2.6.</span> <span class="toc-text">最佳实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-useMemo-%E7%BC%93%E5%AD%98%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">2. 使用 useMemo 缓存计算结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-1"><span class="toc-number">3.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1"><span class="toc-number">3.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-number">3.3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-number">3.4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-number">3.5.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-1"><span class="toc-number">3.6.</span> <span class="toc-text">最佳实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89-Hook-%E6%8F%90%E5%8F%96%E9%80%BB%E8%BE%91"><span class="toc-number">4.</span> <span class="toc-text">3. 自定义 Hook 提取逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-2"><span class="toc-number">4.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-2"><span class="toc-number">4.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-2"><span class="toc-number">4.3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-2"><span class="toc-number">4.4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="toc-number">4.5.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-2"><span class="toc-number">4.6.</span> <span class="toc-text">最佳实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8-useRef-%E8%AE%BF%E9%97%AE-DOM-%E5%85%83%E7%B4%A0"><span class="toc-number">5.</span> <span class="toc-text">4. 使用 useRef 访问 DOM 元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-3"><span class="toc-number">5.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-3"><span class="toc-number">5.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-3"><span class="toc-number">5.3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-3"><span class="toc-number">5.4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-3"><span class="toc-number">5.5.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-3"><span class="toc-number">5.6.</span> <span class="toc-text">最佳实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BD%BF%E7%94%A8-useContext-%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81"><span class="toc-number">6.</span> <span class="toc-text">5. 使用 useContext 共享状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-4"><span class="toc-number">6.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-4"><span class="toc-number">6.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-4"><span class="toc-number">6.3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-4"><span class="toc-number">6.4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-4"><span class="toc-number">6.5.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-4"><span class="toc-number">6.6.</span> <span class="toc-text">最佳实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E5%A5%96%E5%8A%B1%EF%BC%9A%E4%BD%BF%E7%94%A8-React-Hooks-%E5%AE%9E%E7%8E%B0-%E2%80%9C%E7%8C%9C%E6%95%B0%E5%AD%97%E2%80%9D-%E6%B8%B8%E6%88%8F"><span class="toc-number">7.</span> <span class="toc-text">额外奖励：使用 React Hooks 实现 “猜数字” 游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">7.1.</span> <span class="toc-text">游戏介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">7.2.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%8E%9F%E7%90%86"><span class="toc-number">7.3.</span> <span class="toc-text">游戏原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BD%A0%E7%9A%84-Hexo-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%99%E4%B8%AA%E6%B8%B8%E6%88%8F%EF%BC%9F"><span class="toc-number">7.4.</span> <span class="toc-text">如何在你的 Hexo 博客中使用这个游戏？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">9.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/posts-%E6%B5%8B/" title="5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)">5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)</a><time datetime="2025-04-05T08:00:00.000Z" title="发表于 2025-04-05 08:00:00">2025-04-05</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(media/bg-1.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By 無量 — Multitudinous</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 5.4.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 4.14.0-b2</a></div></div><script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script><script>if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}</script></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Livere' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
