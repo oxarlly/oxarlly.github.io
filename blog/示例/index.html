@@ -1,0 +1,649 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Butterfly 文檔(二) 主題頁面 | 千顷文化</title><meta name="author" content="無量 — Multitudinous"><meta name="copyright" content="無量 — Multitudinous"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Butterfly安裝文檔-主題頁面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Butterfly 文檔(二) 主題頁面">
+<meta property="og:url" content="https://oxarlly.github.io/blog/%E7%A4%BA%E4%BE%8B/index.html">
+<meta property="og:site_name" content="千顷文化">
+<meta property="og:description" content="Butterfly安裝文檔-主題頁面">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.012700.xyz/butterfly/2024/09/Butterfly-docs-02-cover.png">
+<meta property="article:published_time" content="2020-05-28T22:34:41.000Z">
+<meta property="article:modified_time" content="2025-08-14T06:59:55.524Z">
+<meta property="article:author" content="無量 — Multitudinous">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.012700.xyz/butterfly/2024/09/Butterfly-docs-02-cover.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Butterfly 文檔(二) 主題頁面",
+  "url": "https://oxarlly.github.io/blog/%E7%A4%BA%E4%BE%8B/",
+  "image": "https://oss.012700.xyz/butterfly/2024/09/Butterfly-docs-02-cover.png",
+  "datePublished": "2020-05-28T22:34:41.000Z",
+  "dateModified": "2025-08-14T06:59:55.524Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "無量 — Multitudinous",
+      "url": "https://oxarlly.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://oxarlly.github.io/media/favicon.png"><link rel="canonical" href="https://oxarlly.github.io/blog/%E7%A4%BA%E4%BE%8B/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.012700.xyz/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+          
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Butterfly 文檔(二) 主題頁面',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script src="https://app.rybbit.io/api/script.js" data-site-id="1839" async defer></script><script>console.log('[Butterfly] Netlify CMS 已禁用（GitHub Pages 环境）')
+</script><script src="https://app.rybbit.io/api/script.js" data-site-id="1823" defer></script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://oxarlly.github.io/media/avatar-o.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 存档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-timeline"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://oss.012700.xyz/butterfly/2024/09/Butterfly-docs-02-cover.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">千顷文化</span></a><a class="nav-page-title" href="/"><span class="site-name">Butterfly 文檔(二) 主題頁面</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 存档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-timeline"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Butterfly 文檔(二) 主題頁面</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-28T22:34:41.000Z" title="发表于 2020-05-28 22:34:41">2020-05-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-14T06:59:55.524Z" title="更新于 2025-08-14 06:59:55">2025-08-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Docs%E6%96%87%E6%AA%94/">Docs文檔</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚 文檔目錄</p>
+<p><a href="#">Post not found: Butterfly-文檔-一-快速開始 🚀 快速開始</a> - <a href="#">Post not found: Butterfly-文檔-二-主題頁面 📑 主題頁面</a> - <a href="#">Post not found: Butterfly-文檔-三-主題配置 📌 主題配置</a> - <a href="#">Post not found: Butterfly-文檔-四-標簽外掛 ⚔️ 標簽外掛</a> - <a href="#">Post not found: Butterfly-文檔-五-主題問答 ❓ 主題問答</a> - <a href="#">Post not found: Butterfly-文檔-六-進階教程 ⚡️ 進階教程</a></p>
+</div>
+
+<div class="note orange icon-padding flat"><i class="note-icon fas fa-magic"></i><p>你可以通過右下角的 <strong>簡</strong> 按鈕切換為簡體顯示</p>
+</div>
+
+<hr>
+<h2 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h2><p><strong>Front-matter 是 markdown 文件最上方以 <code>---</code> 分隔的區域，用於指定個別檔案的變數。</strong></p>
+<ul>
+<li>Page Front-matter 用於 <code>頁面</code> 配置</li>
+<li>Post Front-matter 用於 <code>文章頁</code> 配置</li>
+</ul>
+<div class="note info flat"><p>如果標注<code>可選</code>的參數，可根據自己需要添加，不用全部都寫在 markdown 裏</p>
+</div>
+
+<h3 id="Page-Front-matter"><a href="#Page-Front-matter" class="headerlink" title="Page Front-matter"></a>Page Front-matter</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">updated:</span><br><span class="line">type:</span><br><span class="line">comments:</span><br><span class="line">description:</span><br><span class="line">keywords:</span><br><span class="line">top<span class="emphasis">_img:</span></span><br><span class="line"><span class="emphasis">mathjax:</span></span><br><span class="line"><span class="emphasis">katex:</span></span><br><span class="line"><span class="emphasis">aside:</span></span><br><span class="line"><span class="emphasis">aplayer:</span></span><br><span class="line"><span class="emphasis">highlight_</span>shrink:</span><br><span class="line">random:</span><br><span class="line">limit:</span><br><span class="line">  type:</span><br><span class="line">  value:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>解釋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>【必需】頁面標題</td>
+</tr>
+<tr>
+<td>date</td>
+<td>【必需】頁面創建日期</td>
+</tr>
+<tr>
+<td>type</td>
+<td>【必需】標籤、分類和友情鏈接三個頁面需要配置</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>【可選】頁面更新日期</td>
+</tr>
+<tr>
+<td>description</td>
+<td>【可選】頁面描述</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>【可選】頁面關鍵字</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>【可選】顯示頁面評論模塊 (默認 true)</td>
+</tr>
+<tr>
+<td>top_img</td>
+<td>【可選】頁面頂部圖片</td>
+</tr>
+<tr>
+<td>mathjax</td>
+<td>【可選】顯示 mathjax (當設置 mathjax 的 per_page: false 時，才需要配置，默認 false)</td>
+</tr>
+<tr>
+<td>katex</td>
+<td>【可選】顯示 katex (當設置 katex 的 per_page: false 時，才需要配置，默認 false)</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>【可選】顯示側邊欄 (默認 true)</td>
+</tr>
+<tr>
+<td>aplayer</td>
+<td>【可選】在需要的頁面加載 aplayer 的 js 和 css,請參考文章下面的<code>音樂</code> 配置</td>
+</tr>
+<tr>
+<td>highlight_shrink</td>
+<td>【可選】配置代碼框是否展開 (true&#x2F;false) (默認為設置中 highlight_shrink 的配置)</td>
+</tr>
+<tr>
+<td>random</td>
+<td>【可選】配置友情鏈接是否隨機排序（默認為 false）</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>【可選】配置説説顯示數量</td>
+</tr>
+<tr>
+<td>limit.type</td>
+<td>【可選】配置説説顯示數量的類型 （date 或者 num）</td>
+</tr>
+<tr>
+<td>limit.value</td>
+<td>【可選】配置説説顯示數量的值</td>
+</tr>
+</tbody></table>
+<h3 id="Post-Front-matter"><a href="#Post-Front-matter" class="headerlink" title="Post Front-matter"></a>Post Front-matter</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">updated:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">keywords:</span><br><span class="line">description:</span><br><span class="line">top<span class="emphasis">_img:</span></span><br><span class="line"><span class="emphasis">comments:</span></span><br><span class="line"><span class="emphasis">cover:</span></span><br><span class="line"><span class="emphasis">toc:</span></span><br><span class="line"><span class="emphasis">toc_</span>number:</span><br><span class="line">toc<span class="emphasis">_style_</span>simple:</span><br><span class="line">copyright:</span><br><span class="line">copyright<span class="emphasis">_author:</span></span><br><span class="line"><span class="emphasis">copyright_</span>author<span class="emphasis">_href:</span></span><br><span class="line"><span class="emphasis">copyright_</span>url:</span><br><span class="line">copyright<span class="emphasis">_info:</span></span><br><span class="line"><span class="emphasis">mathjax:</span></span><br><span class="line"><span class="emphasis">katex:</span></span><br><span class="line"><span class="emphasis">aplayer:</span></span><br><span class="line"><span class="emphasis">highlight_</span>shrink:</span><br><span class="line">aside:</span><br><span class="line">abcjs:</span><br><span class="line">noticeOutdate:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">寫法</th>
+<th>解釋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">title</td>
+<td>【必需】文章標題</td>
+</tr>
+<tr>
+<td align="left">date</td>
+<td>【必需】文章創建日期</td>
+</tr>
+<tr>
+<td align="left">updated</td>
+<td>【可選】文章更新日期</td>
+</tr>
+<tr>
+<td align="left">tags</td>
+<td>【可選】文章標籤</td>
+</tr>
+<tr>
+<td align="left">categories</td>
+<td>【可選】文章分類</td>
+</tr>
+<tr>
+<td align="left">keywords</td>
+<td>【可選】文章關鍵字</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td>【可選】文章描述</td>
+</tr>
+<tr>
+<td align="left">top_img</td>
+<td>【可選】文章頂部圖片</td>
+</tr>
+<tr>
+<td align="left">cover</td>
+<td>【可選】文章縮略圖(如果沒有設置 top_img,文章頁頂部將顯示縮略圖，可設為 false&#x2F;圖片地址&#x2F;留空)</td>
+</tr>
+<tr>
+<td align="left">comments</td>
+<td>【可選】顯示文章評論模塊(默認 true)</td>
+</tr>
+<tr>
+<td align="left">toc</td>
+<td>【可選】顯示文章 TOC(默認為設置中 toc 的 enable 配置)</td>
+</tr>
+<tr>
+<td align="left">toc_number</td>
+<td>【可選】顯示 toc_number(默認為設置中 toc 的 number 配置)</td>
+</tr>
+<tr>
+<td align="left">toc_style_simple</td>
+<td>【可選】顯示 toc 簡潔模式</td>
+</tr>
+<tr>
+<td align="left">copyright</td>
+<td>【可選】顯示文章版權模塊(默認為設置中 post_copyright 的 enable 配置)</td>
+</tr>
+<tr>
+<td align="left">copyright_author</td>
+<td>【可選】文章版權模塊的<code>文章作者</code></td>
+</tr>
+<tr>
+<td align="left">copyright_author_href</td>
+<td>【可選】文章版權模塊的<code>文章作者</code>鏈接</td>
+</tr>
+<tr>
+<td align="left">copyright_url</td>
+<td>【可選】文章版權模塊的<code>文章連結</code>鏈接</td>
+</tr>
+<tr>
+<td align="left">copyright_info</td>
+<td>【可選】文章版權模塊的<code>版權聲明</code>文字</td>
+</tr>
+<tr>
+<td align="left">mathjax</td>
+<td>【可選】顯示 mathjax(當設置 mathjax 的 per_page: false 時，才需要配置，默認 false )</td>
+</tr>
+<tr>
+<td align="left">katex</td>
+<td>【可選】顯示 katex (當設置 katex 的 per_page: false 時，才需要配置，默認 false )</td>
+</tr>
+<tr>
+<td align="left">aplayer</td>
+<td>【可選】在需要的頁面加載 aplayer 的 js 和 css,請參考文章下面的<code>音樂</code> 配置</td>
+</tr>
+<tr>
+<td align="left">highlight_shrink</td>
+<td>【可選】配置代碼框是否展開(true&#x2F;false)(默認為設置中 highlight_shrink 的配置)</td>
+</tr>
+<tr>
+<td align="left">aside</td>
+<td>【可選】顯示側邊欄 (默認 true)</td>
+</tr>
+<tr>
+<td align="left">abcjs</td>
+<td>【可選】加載 abcjs (當設置 abcjs 的 per_page: false 時，才需要配置，默認 false )</td>
+</tr>
+<tr>
+<td align="left">noticeOutdate</td>
+<td>【可選】文章過期提醒 (默認為設置中 noticeOutdate 的 enable 配置)</td>
+</tr>
+</tbody></table>
+<h2 id="標籤頁"><a href="#標籤頁" class="headerlink" title="標籤頁"></a>標籤頁</h2><div class="note info flat"><p>標籤頁文件名不一定是 tags, 例子中的 tags 只是一個示例<br>記得添加 <code>type: &quot;tags&quot;</code></p>
+</div>
+
+<ol>
+<li><p>前往你的 Hexo 的根目錄</p>
+</li>
+<li><p>輸入 <code>hexo new page tags</code></p>
+</li>
+<li><p>你會找到 <code>source/tags/index.md</code> 這個文件</p>
+</li>
+<li><p>修改這個文件：</p>
+</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 標籤</span><br><span class="line">date: 2018-01-05 00:00:00</span><br><span class="line">type: &#x27;tags&#x27;</span><br><span class="line">orderby: random</span><br><span class="line">order: 1</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>解釋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>【必須】頁面類型，必須為 <code>tags</code></td>
+</tr>
+<tr>
+<td>orderby</td>
+<td>【可選】排序方式 ：</br>random - 隨機排序 &#x2F; name - 標簽名字排序 &#x2F; length - 標簽數量排序</td>
+</tr>
+<tr>
+<td>order</td>
+<td>【可選】排序次序： 1（升序），-1（降序）</td>
+</tr>
+</tbody></table>
+<h2 id="分類頁"><a href="#分類頁" class="headerlink" title="分類頁"></a>分類頁</h2><div class="note info flat"><p>分類頁文件名不一定是 categories, 例子中的 categories 只是一個示例<br>記得添加 <code>type: &quot;categories&quot;</code></p>
+</div>
+
+<ol>
+<li><p>前往你的 Hexo 的根目錄</p>
+</li>
+<li><p>輸入 <code>hexo new page categories</code></p>
+</li>
+<li><p>你會找到 <code>source/categories/index.md</code> 這個文件</p>
+</li>
+<li><p>修改這個文件：</p>
+</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分類</span><br><span class="line">date: 2018-01-05 00:00:00</span><br><span class="line">type: &#x27;categories&#x27;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h2 id="友情鏈接"><a href="#友情鏈接" class="headerlink" title="友情鏈接"></a>友情鏈接</h2><p>為你的博客創建一個友情鏈接！</p>
+<h3 id="創建友情鏈接頁面"><a href="#創建友情鏈接頁面" class="headerlink" title="創建友情鏈接頁面"></a>創建友情鏈接頁面</h3><div class="note info flat"><p>友情鏈接頁文件名不一定是 link, 例子中的 link 只是一個示例<br>記得添加 <code>type: &quot;link&quot;</code></p>
+</div>
+
+<ol>
+<li><p>前往你的 Hexo 的根目錄</p>
+</li>
+<li><p>輸入 <code>hexo new page link</code></p>
+</li>
+<li><p>你會找到 <code>source/link/index.md</code> 這個文件</p>
+</li>
+<li><p>修改這個文件：</p>
+</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 友情鏈接</span><br><span class="line">date: 2018-06-07 22:17:49</span><br><span class="line">type: &#x27;link&#x27;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h3 id="數據來源"><a href="#數據來源" class="headerlink" title="數據來源"></a>數據來源</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">本地生成</button><button type="button" class="tab">遠程拉取</button></div><div class="tab-contents"><div class="tab-item-content active"><p>在 Hexo 根目錄中的 <code>source/_data</code>（如果沒有 _data 文件夾，請自行創建），創建一個文件 <code>link.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">class_name:</span> <span class="string">友情鏈接</span></span><br><span class="line">  <span class="attr">class_desc:</span> <span class="string">那些人，那些事</span></span><br><span class="line">  <span class="attr">link_list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Hexo</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://hexo.io/zh-tw/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">快速、簡單且強大的網誌框架</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">class_name:</span> <span class="string">網站</span></span><br><span class="line">  <span class="attr">class_desc:</span> <span class="string">值得推薦的網站</span></span><br><span class="line">  <span class="attr">link_list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Youtube</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://www.youtube.com/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">視頻網站</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Weibo</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://www.weibo.com/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">中國最大社交分享平台</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Twitter</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://twitter.com/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">社交分享平台</span></span><br></pre></td></tr></table></figure>
+
+<p><code>class_name</code> 和 <code>class_desc</code> 支持 html 格式書寫，如不需要，也可以留空。</p></div><div class="tab-item-content"><p>從 <code>4.0.0</code> 開始，支持從遠程加載友情鏈接，遠程拉取只支持 <code>json</code>。</p>
+<div class="note warning flat"><p>注意： 選擇遠程加載後，本地生成的方法會無效。</p>
+</div>
+
+<p>在 <code>source/link/index.md</code> 這個文件的 front-matter 添加遠程鏈接</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flink<span class="emphasis">_url: xxxxx</span></span><br></pre></td></tr></table></figure>
+
+<p>Json 的格式</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;class_name&quot;</span>: <span class="string">&quot;友情鏈接&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;class_desc&quot;</span>: <span class="string">&quot;那些人，那些事&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;link_list&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Hexo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;link&quot;</span>: <span class="string">&quot;https://hexo.io/zh-tw/&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;descr&quot;</span>: <span class="string">&quot;快速、簡單且強大的網誌框架&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;class_name&quot;</span>: <span class="string">&quot;網站&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;class_desc&quot;</span>: <span class="string">&quot;值得推薦的網站&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;link_list&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Youtube&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;link&quot;</span>: <span class="string">&quot;https://www.youtube.com/&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;descr&quot;</span>: <span class="string">&quot;視頻網站&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Weibo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;link&quot;</span>: <span class="string">&quot;https://www.weibo.com/&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;descr&quot;</span>: <span class="string">&quot;中國最大社交分享平台&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Twitter&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;link&quot;</span>: <span class="string">&quot;https://twitter.com/&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;descr&quot;</span>: <span class="string">&quot;社交分享平台&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h3 id="友情鏈接隨機排序"><a href="#友情鏈接隨機排序" class="headerlink" title="友情鏈接隨機排序"></a>友情鏈接隨機排序</h3><p>主題支持友情鏈接隨機排序，只需要在頂部 <code>front-matter</code> 添加 <code>random: true</code></p>
+<h3 id="友情鏈接界面設置"><a href="#友情鏈接界面設置" class="headerlink" title="友情鏈接界面設置"></a>友情鏈接界面設置</h3><p>由 2.2.0 起，友情鏈接界面可以由用户自己自定義，只需要在友情鏈接的 Markdown 檔設置就行，以普通的 Markdown 格式書寫。</p>
+<h2 id="圖庫"><a href="#圖庫" class="headerlink" title="圖庫"></a>圖庫</h2><p>圖庫頁面只是普通的頁面，你只需要 <code>hexo n page xxxxx</code> 創建你的頁面就行</p>
+<p>然後使用標簽外掛 <a href="/posts/ceeb73f/#Gallery-%E7%9B%B8%E5%86%8A%E5%9C%96%E5%BA%AB">galleryGroup</a>，具體用法請查看對應的內容。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">class=&quot;gallery-group-main&quot;&gt;</span></span><br><span class="line">&#123;<span class="string">%</span> <span class="string">galleryGroup</span> <span class="string">&#x27;壁紙&#x27;</span> <span class="string">&#x27;收藏的一些壁紙&#x27;</span> <span class="string">&#x27;/Gallery/wallpaper&#x27;</span> <span class="string">https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png</span> <span class="string">%</span>&#125;</span><br><span class="line">&#123;<span class="string">%</span> <span class="string">galleryGroup</span> <span class="string">&#x27;漫威&#x27;</span> <span class="string">&#x27;關於漫威的圖片&#x27;</span> <span class="string">&#x27;/Gallery/marvel&#x27;</span> <span class="string">https://i.loli.net/2019/12/25/8t97aVlp4hgyBGu.jpg</span> <span class="string">%</span>&#125;</span><br><span class="line">&#123;<span class="string">%</span> <span class="string">galleryGroup</span> <span class="string">&#x27;OH MY GIRL&#x27;</span> <span class="string">&#x27;關於OH MY GIRL的圖片&#x27;</span> <span class="string">&#x27;/Gallery/ohmygirl&#x27;</span> <span class="string">https://i.loli.net/2019/12/25/hOqbQ3BIwa6KWpo.jpg</span> <span class="string">%</span>&#125;</span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div class="gallery-group-main">
+<figure class="gallery-group">
+    <img class="gallery-group-img no-lightbox" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src='https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png' alt="Group Image Gallery">
+    <figcaption>
+      <div class="gallery-group-name">壁紙</div>
+      <p>收藏的一些壁紙</p>
+      <a href='/Gallery/wallpaper'></a>
+    </figcaption>
+  </figure>
+<figure class="gallery-group">
+    <img class="gallery-group-img no-lightbox" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src='https://i.loli.net/2019/12/25/8t97aVlp4hgyBGu.jpg' alt="Group Image Gallery">
+    <figcaption>
+      <div class="gallery-group-name">漫威</div>
+      <p>關於漫威的圖片</p>
+      <a href='/Gallery/marvel'></a>
+    </figcaption>
+  </figure>
+<figure class="gallery-group">
+    <img class="gallery-group-img no-lightbox" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src='https://i.loli.net/2019/12/25/hOqbQ3BIwa6KWpo.jpg' alt="Group Image Gallery">
+    <figcaption>
+      <div class="gallery-group-name">OH MY GIRL</div>
+      <p>關於OH MY GIRL的圖片</p>
+      <a href='/Gallery/ohmygirl'></a>
+    </figcaption>
+  </figure>
+</div>
+
+<h3 id="子頁面"><a href="#子頁面" class="headerlink" title="子頁面"></a>子頁面</h3><p>子頁面也是普通的頁面，你只需要 <code>hexo n page xxxxx</code> 創建你的頁面就行</p>
+<p>然後使用標簽外掛 <a href="/posts/ceeb73f/#Gallery%E7%9B%B8%E5%86%8A">gallery</a>，具體用法請查看對應的內容。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">%</span> <span class="string">gallery</span> <span class="string">%</span>&#125;</span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/Fze9jchtnyJXMHN.jpg)</span></span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/ryLVePaqkYm4TEK.jpg)</span></span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/gEy5Zc1Ai6VuO4N.jpg)</span></span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/d6QHbytlSYO4FBG.jpg)</span></span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/6nepIJ1xTgufatZ.jpg)</span></span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/E7Jvr4eIPwUNmzq.jpg)</span></span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/mh19anwBSWIkGlH.jpg)</span></span><br><span class="line"><span class="type">![](https://i.loli.net/2019/12/25/2tu9JC8ewpBFagv.jpg)</span></span><br><span class="line">&#123;<span class="string">%</span> <span class="string">endgallery</span> <span class="string">%</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">
+    <div class="gallery-items">[{"url":"https://i.loli.net/2019/12/25/Fze9jchtnyJXMHN.jpg","alt":"","title":""},{"url":"https://i.loli.net/2019/12/25/ryLVePaqkYm4TEK.jpg","alt":"","title":""},{"url":"https://i.loli.net/2019/12/25/gEy5Zc1Ai6VuO4N.jpg","alt":"","title":""},{"url":"https://i.loli.net/2019/12/25/d6QHbytlSYO4FBG.jpg","alt":"","title":""},{"url":"https://i.loli.net/2019/12/25/6nepIJ1xTgufatZ.jpg","alt":"","title":""},{"url":"https://i.loli.net/2019/12/25/E7Jvr4eIPwUNmzq.jpg","alt":"","title":""},{"url":"https://i.loli.net/2019/12/25/mh19anwBSWIkGlH.jpg","alt":"","title":""},{"url":"https://i.loli.net/2019/12/25/2tu9JC8ewpBFagv.jpg","alt":"","title":""}]</div>
+  </div>
+
+<div class="note pink icon-padding flat"><i class="note-icon fas fa-sitemap"></i><p>如果你想要使用 <code>/photo/ohmygirl</code> 這樣的鏈接顯示你的圖片內容</p>
+<p>你可以把創建好的 <code>ohmygirl</code> 整個文件夾移到 <code>photo</code> 文件夾裏去</p>
+</div>
+
+<h2 id="404-頁面"><a href="#404-頁面" class="headerlink" title="404 頁面"></a>404 頁面</h2><p>主題內置了一個簡單的 404 頁面，可在設置中開啟</p>
+<div class="note info flat"><p>本地預覽時，訪問出錯的網站是不會跳到 404 頁面的。</p>
+<p>如需本地預覽，請訪問 <code>http://localhost:4000/404.html</code></p>
+</div>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A simple 404 page</span></span><br><span class="line"><span class="attr">error_404:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">subtitle:</span> <span class="string">&#x27;頁面沒有找到&#x27;</span></span><br><span class="line">  <span class="attr">background:</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://oss.012700.xyz/butterfly/2024/09/hexo-theme-butterfly-docs-error404.png" alt="hexo-theme-butterfly-docs-error404.png"></p>
+<h2 id="説説頁面"><a href="#説説頁面" class="headerlink" title="説説頁面"></a>説説頁面</h2><div class="note pink icon-padding flat"><i class="note-icon fa-solid fa-bell"></i><p>添加于 V5.0</p>
+</div>
+
+<p><strong>請留意，説説界面只支持原生的 markdown 格式，不支持標簽外挂和數學公式</strong></p>
+<h3 id="創建説説頁面"><a href="#創建説説頁面" class="headerlink" title="創建説説頁面"></a>創建説説頁面</h3><div class="note info flat"><p>説説頁文件名不一定是 shuoshuo, 例子中的 shuoshuo 只是一個示例<br>記得添加 <code>type: &quot;shuoshuo&quot;</code></p>
+</div>
+
+<ol>
+<li><p>前往你的 Hexo 的根目錄</p>
+</li>
+<li><p>輸入 <code>hexo new page shuoshuo</code></p>
+</li>
+<li><p>你會找到 <code>source/shuoshuo/index.md</code> 這個文件</p>
+</li>
+<li><p>修改這個文件：</p>
+</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 説説</span><br><span class="line">date: 2018-06-07 22:17:49</span><br><span class="line">type: &#x27;shuoshuo&#x27;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>你可以隱藏一些説説，可配置的參數：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">limit:</span><br><span class="line">  type: date</span><br><span class="line">  value: 2024-06-20</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>解釋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>limit</td>
+<td>【可選】配置説説顯示數量</td>
+</tr>
+<tr>
+<td>limit.type</td>
+<td>【可選】配置説説顯示數量的類型 （date 或者 num）</td>
+</tr>
+<tr>
+<td>limit.value</td>
+<td>【可選】配置説説顯示數量的值 （當 type 配置為 date 時， value 的值必須為日期。當 type 配置為 num 時， value 的值必須為數字，且大於 0</td>
+</tr>
+</tbody></table>
+<h3 id="數據來源-1"><a href="#數據來源-1" class="headerlink" title="數據來源"></a>數據來源</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">本地生成</button><button type="button" class="tab">遠程拉取</button></div><div class="tab-contents"><div class="tab-item-content active"><p>在 Hexo 根目錄中的 <code>source/_data</code>（如果沒有 _data 文件夾，請自行創建），創建一個文件 shuoshuo.yml</p>
+<div class="note blue icon-padding flat"><i class="note-icon fa-solid fa-user"></i><p><code>author</code> 和 <code>avatar</code>可省略，會自動去獲取配置文件中的 <code>author</code> 和 <code>avatar</code></p>
+<p>如果需要開啓評論，必須配置 <code>key</code>，否則不會顯示評論按鈕</p>
+</div>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">author:</span> <span class="string">Butterfly</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">https://butterfly.js.org/img/avatar.png</span></span><br><span class="line">  <span class="attr">date:</span> <span class="number">2024-06-21 23:33:26</span></span><br><span class="line">  <span class="attr">key:</span> <span class="string">key-1</span></span><br><span class="line">  <span class="attr">content:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">This</span> <span class="string">is</span> <span class="string">a</span> <span class="string">sample</span> <span class="string">content</span> <span class="string">for</span> <span class="string">**Author</span> <span class="number">1</span><span class="string">**.</span></span><br><span class="line">    <span class="type">![Sample</span> <span class="string">Image](https://via.placeholder.com/150)</span></span><br><span class="line">  <span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tags1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tags2</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">author:</span> <span class="string">Butterfly</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">https://butterfly.js.org/img/avatar.png</span></span><br><span class="line">  <span class="attr">date:</span> <span class="number">2024-06-20 23:33:26</span></span><br><span class="line">  <span class="attr">key:</span> <span class="string">key-2</span></span><br><span class="line">  <span class="attr">content:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">This</span> <span class="string">is</span> <span class="string">a</span> <span class="string">sample</span> <span class="string">content</span> <span class="string">for</span> <span class="string">**Author</span> <span class="number">2</span><span class="string">**.</span></span><br><span class="line">    <span class="type">![Sample</span> <span class="string">Image](https://via.placeholder.com/150)</span></span><br><span class="line">  <span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tag2</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tag3</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">author:</span> <span class="string">Butterfly</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">https://butterfly.js.org/img/avatar.png</span></span><br><span class="line">  <span class="attr">date:</span> <span class="number">2024-06-19 23:33:26</span></span><br><span class="line">  <span class="attr">key:</span> <span class="string">key-3</span></span><br><span class="line">  <span class="attr">content:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">This</span> <span class="string">is</span> <span class="string">a</span> <span class="string">sample</span> <span class="string">content</span> <span class="string">for</span> <span class="string">**Author</span> <span class="number">3</span><span class="string">**.</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>解釋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>author</td>
+<td>【可選】作者名稱</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>【可選】作者頭像</td>
+</tr>
+<tr>
+<td>date</td>
+<td>【必需】日期</td>
+</tr>
+<tr>
+<td>content</td>
+<td>【必需】內容（ Markdown 格式或者 Html 格式</td>
+</tr>
+<tr>
+<td>key</td>
+<td>【可選】評論的唯一標識, 開啓評論必須配置</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>【可選】標籤</td>
+</tr>
+</tbody></table></div><div class="tab-item-content"><div class="note warning flat"><p>注意： 選擇遠程加載後，本地生成的方法會無效。<br>遠程拉取只支持 <code>json</code></p>
+</div>
+
+<p>在説説頁面 Markdown 裏的 front-matter 添加遠程鏈接</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shuoshuo<span class="emphasis">_url: xxxxx</span></span><br></pre></td></tr></table></figure>
+
+<p>Json 的格式：</p>
+<div class="note blue icon-padding flat"><i class="note-icon fa-solid fa-user"></i><p><code>author</code> 和 <code>avatar</code>可省略，會自動去獲取配置文件中的 <code>author</code> 和 <code>avatar</code></p>
+</div>
+
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Butterfly&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://butterfly.js.org/img/avatar.png&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;date&quot;</span>: <span class="string">&quot;2024-06-21 23:33:26&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;content&quot;</span>: <span class="string">&quot;This is a sample content for **Author 1**.&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;key&quot;</span>: <span class="string">&quot;key-1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tags&quot;</span>: [<span class="string">&quot;tags1&quot;</span>, <span class="string">&quot;tags2&quot;</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Butterfly&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://butterfly.js.org/img/avatar.png&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;date&quot;</span>: <span class="string">&quot;2024-06-20 23:33:26&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;content&quot;</span>: <span class="string">&quot;This is a sample content for **Author 2**.&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;key&quot;</span>: <span class="string">&quot;key-2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tags&quot;</span>: [<span class="string">&quot;tag2&quot;</span>, <span class="string">&quot;tag3&quot;</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Butterfly&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://butterfly.js.org/img/avatar.png&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;date&quot;</span>: <span class="string">&quot;2024-06-19 23:33:26&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;content&quot;</span>: <span class="string">&quot;This is a sample content for **Author 3**.&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>解釋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>author</td>
+<td>【可選】作者名稱</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>【可選】作者頭像</td>
+</tr>
+<tr>
+<td>date</td>
+<td>【必需】日期</td>
+</tr>
+<tr>
+<td>content</td>
+<td>【必需】內容（ Markdown 格式或者 Html 格式</td>
+</tr>
+<tr>
+<td>key</td>
+<td>【可選】評論的唯一標識, 開啓評論必須配置</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>【可選】標籤</td>
+</tr>
+</tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<a class="btn-beautify block pink right larger" href="/posts/4aa8abbe/" title="📌 Butterfly 文檔(三) 主題配置"><i class="far fa-hand-point-right"></i><span>📌 Butterfly 文檔(三) 主題配置</span></a></article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://oss.012700.xyz/butterfly/2024/09/Butterfly-docs-02-cover.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/blog/posts-%E6%B5%8B/" title="5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)</div></div><div class="info-2"><div class="info-item-1">引言React Hooks 已经成为 React 开发中不可或缺的一部分。 它们让函数组件也能拥有 state 和生命周期方法，极大地提高了代码的可复用性和可维护性。 本文将分享 5 个我经常使用的 React Hooks 技巧，可以帮助你提高开发效率，写出更简洁、更易于维护的代码。 为了让学习过程更有趣，我们还会用 React Hooks 实现一个简单的 “猜数字” 游戏！ 1. 使用 useCallback 避免不必要的渲染问题当你将一个函数作为 prop 传递给子组件时，每次父组件重新渲染，该函数都会被重新创建，导致子组件不必要的渲染。 这会降低应用的性能，尤其是在子组件比较复杂的情况下。 解决方案使用 useCallback Hook 缓存函数，只有当依赖项发生变化时才重新创建函数。 1234567891011121314import React, &#123; useCallback &#125; from &#x27;react&#x27;;function ParentComponent() &#123;  const handleClick =...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://oxarlly.github.io/media/avatar-o.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">無量 — Multitudinous</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCupYS-zTTlOHHENztxWXI_Q"><i class="fab fa-youtube"></i><span>订阅</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/MS4wLjABAAAATK9ov0UNhsGTPkNDu9xcJN3lCeG7TT3ZBQmbgvpQrDHqAL_-LxPyL_M4aXJ6tsAA" target="_blank" title="抖音"><i class="fa-brands fa-tiktok"></i></a><a class="social-icon" href="https://x.com/oxarlly" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a class="social-icon" href="mailto:jianhua37212022@gmail.com" target="_blank" title="邮箱"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">投稿者上<a href="https://oxarlly.github.io/link/">扩列墙</a>！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Front-matter"><span class="toc-number">1.</span> <span class="toc-text">Front-matter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Page-Front-matter"><span class="toc-number">1.1.</span> <span class="toc-text">Page Front-matter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Post-Front-matter"><span class="toc-number">1.2.</span> <span class="toc-text">Post Front-matter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%99%E7%B1%A4%E9%A0%81"><span class="toc-number">2.</span> <span class="toc-text">標籤頁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%A1%9E%E9%A0%81"><span class="toc-number">3.</span> <span class="toc-text">分類頁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8B%E6%83%85%E9%8F%88%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">友情鏈接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%B5%E5%BB%BA%E5%8F%8B%E6%83%85%E9%8F%88%E6%8E%A5%E9%A0%81%E9%9D%A2"><span class="toc-number">4.1.</span> <span class="toc-text">創建友情鏈接頁面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E4%BE%86%E6%BA%90"><span class="toc-number">4.2.</span> <span class="toc-text">數據來源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8B%E6%83%85%E9%8F%88%E6%8E%A5%E9%9A%A8%E6%A9%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">4.3.</span> <span class="toc-text">友情鏈接隨機排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8B%E6%83%85%E9%8F%88%E6%8E%A5%E7%95%8C%E9%9D%A2%E8%A8%AD%E7%BD%AE"><span class="toc-number">4.4.</span> <span class="toc-text">友情鏈接界面設置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%96%E5%BA%AB"><span class="toc-number">5.</span> <span class="toc-text">圖庫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E9%A0%81%E9%9D%A2"><span class="toc-number">5.1.</span> <span class="toc-text">子頁面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#404-%E9%A0%81%E9%9D%A2"><span class="toc-number">6.</span> <span class="toc-text">404 頁面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AA%AC%E8%AA%AC%E9%A0%81%E9%9D%A2"><span class="toc-number">7.</span> <span class="toc-text">説説頁面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%B5%E5%BB%BA%E8%AA%AC%E8%AA%AC%E9%A0%81%E9%9D%A2"><span class="toc-number">7.1.</span> <span class="toc-text">創建説説頁面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E4%BE%86%E6%BA%90-1"><span class="toc-number">7.2.</span> <span class="toc-text">數據來源</span></a></li></ol></li></ol></div></div><div class="card-widget card-post-series"><div class="item-headline"><i class="fa-solid fa-layer-group"></i><span>系列文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/%E7%A4%BA%E4%BE%8B/" title="Butterfly 文檔(二) 主題頁面"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://oss.012700.xyz/butterfly/2024/09/Butterfly-docs-02-cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 文檔(二) 主題頁面"></a><div class="content"><a class="title" href="/blog/%E7%A4%BA%E4%BE%8B/" title="Butterfly 文檔(二) 主題頁面">Butterfly 文檔(二) 主題頁面</a><time datetime="2020-05-28T22:34:41.000Z" title="发表于 2020-05-28 22:34:41">2020-05-28</time></div></div></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/proxies/" title="节点">节点</a><time datetime="2025-05-01T00:49:49.000Z" title="发表于 2025-05-01 00:49:49">2025-05-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/posts-%E6%B5%8B/" title="5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)">5 个提升 React Hooks 开发效率的实用技巧 (含游戏示例)</a><time datetime="2025-04-05T08:00:00.000Z" title="发表于 2025-04-05 08:00:00">2025-04-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/%E7%A4%BA%E4%BE%8B/" title="Butterfly 文檔(二) 主題頁面"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://oss.012700.xyz/butterfly/2024/09/Butterfly-docs-02-cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 文檔(二) 主題頁面"/></a><div class="content"><a class="title" href="/blog/%E7%A4%BA%E4%BE%8B/" title="Butterfly 文檔(二) 主題頁面">Butterfly 文檔(二) 主題頁面</a><time datetime="2020-05-28T22:34:41.000Z" title="发表于 2020-05-28 22:34:41">2020-05-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(media/bg-1.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By 無量 — Multitudinous</div><div class="footer_custom_text">千顷文化</div></div><script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script><script>if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}</script></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
