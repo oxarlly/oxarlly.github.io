@@ -1,0 +1,457 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><title>分类: 深度思考 | 千顷文化</title><meta name="author" content="無量 – Multitudinous"><meta name="copyright" content="無量 – Multitudinous"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="千顷文化">
+<meta property="og:url" content="https://senchin.dpdns.org/categories/%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83/index.html">
+<meta property="og:site_name" content="千顷文化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://senchin.dpdns.org/media/avatar-o.webp">
+<meta property="article:author" content="無量 – Multitudinous">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://senchin.dpdns.org/media/avatar-o.webp"><script type="application/ld+json"></script><link rel="shortcut icon" href="https://senchin.dpdns.org/media/favicon.webp"><link rel="canonical" href="https://senchin.dpdns.org/categories/%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.4.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.17/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '分类: 深度思考',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'category',
+  // 新增：简繁转换相关配置
+  translate: {
+    defaultEncoding: 2,
+    translateDelay: 0,
+    msgToTraditionalChinese: '繁',
+    msgToSimplifiedChinese: '簡',
+    blacklist: ["無量 – Multitudinous"]
+  },
+  // 其他配置（如 Snackbar 等）保持不变，按需补充
+  Snackbar: {}
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7525f5b2-b5dd-423e-8dff-d482a70f688e"></script><style>
+  /* 仅跟随 Butterfly 主题深色模式开关，与系统深色模式无关 */
+  html[data-theme="dark"] body .aplayer {
+    background: #121212 !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5) !important;
+  }
+  html[data-theme="dark"] body .aplayer .aplayer-info {
+    border-top: 1px solid #2a2a2a !important;
+  }
+  /* 歌词上方的当前歌曲大标题（基准白色） */
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-music .aplayer-title {
+    color: #ffffff !important;
+  }
+  /* 歌手/作者名（浅灰） */
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-music .aplayer-author {
+    color: #cccccc !important;
+  }
+  /* 播放时间文字 */
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-controller .aplayer-time {
+    color: #dddddd !important;
+  }
+  /* 控制按钮颜色 */
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-controller .aplayer-button {
+    color: #dddddd !important;
+  }
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-controller .aplayer-button:hover {
+    color: #ffffff !important;
+  }
+  /* 音量条适配 */
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar {
+    background: #333333 !important;
+  }
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar .aplayer-volume {
+    background: #2d8cf0 !important;
+  }
+  /* 播放列表背景 */
+  html[data-theme="dark"] body .aplayer .aplayer-list {
+    background: #121212 !important;
+    border-top: 1px solid #2a2a2a !important;
+  }
+  /* 列表歌曲名（纯白） */
+  html[data-theme="dark"] body .aplayer .aplayer-list ol li {
+    border-top: 1px solid #2a2a2a !important;
+    color: #ffffff !important;
+  }
+  html[data-theme="dark"] body .aplayer .aplayer-list ol li:hover {
+    background: #252525 !important;
+  }
+  /* 列表中当前播放的歌曲名：和上方大标题颜色完全一致（纯白） */
+  html[data-theme="dark"] body .aplayer .aplayer-list ol li.aplayer-list-light {
+    background: #252525 !important;
+    color: #ffffff !important;
+  }
+  /* 列表歌手名（浅灰） */
+  html[data-theme="dark"] body .aplayer .aplayer-list ol li .aplayer-list-author {
+    color: #cccccc !important;
+  }
+  /* 迷你模式适配 */
+  html[data-theme="dark"] body .aplayer.aplayer-narrow {
+    background: #121212 !important;
+  }
+  /* 非当前行歌词（浅灰） */
+  html[data-theme="dark"] body .aplayer .aplayer-lrc p {
+    color: #bbbbbb !important;
+  }
+  /* 当前播放的歌词：和上方大标题颜色完全一致（纯白） */
+  html[data-theme="dark"] body .aplayer .aplayer-lrc p.aplayer-lrc-current {
+    color: #ffffff !important;
+  }
+  /* 歌词上下渐变遮罩同步适配深色背景 */
+  html[data-theme="dark"] body .aplayer .aplayer-lrc:before {
+    background: linear-gradient(180deg, #121212 0, rgba(18, 18, 18, 0)) !important;
+  }
+  html[data-theme="dark"] body .aplayer .aplayer-lrc:after {
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0, #121212) !important;
+  }
+  /* 核心修改：深色模式下进度条白色滑块适配，消除突兀白色 */
+  html[data-theme="dark"] body .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
+    border-color: #d4b996 !important;
+    background: #d4b996 !important;
+  }
+</style>
+<style>
+  /* 屏蔽 MathJax 或其他插件生成的右键菜单框架 */
+  .CtxtMenu_MenuFrame {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+</style>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="千顷文化" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://senchin.dpdns.org/media/avatar-o.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 存档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-timeline"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/live/"><i class="fa-fw fas fa-comments"></i><span> 动态</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://senchin.dpdns.org/images/categories.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">千顷文化</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 存档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-timeline"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/live/"><i class="fa-fw fas fa-comments"></i><span> 动态</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">深度思考</h1></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/blog/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/" title="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/th.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/" title="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？">看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-02-14T08:09:17.000Z" title="发表于 2026-02-14 08:09:17">2026-02-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83/">深度思考</a></span></div><div class="content">看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？引子：当你开始怀疑这个世界你有没有过这种时刻？ 在超市拿起一包零食，盯着配料表上一长串看不懂的化学名词，突然一阵寒意：  我吃的到底是什么？  刷到新闻，某知名品牌又被爆添加剂超标，企业连夜跑路，最后不了了之，你会想：  监管真的能保护我吗？  当你在社交平台看到有人用暗语交易个人信息、倒卖违禁品，你会问：  这个世界真的有我们想象中那么安全吗？  今天，我们不鸡汤、不洗地，用最清醒的视角，把这个世界的底层逻辑捅破——从黑灰产到食品安全，从欧美监管到国内现状，最后告诉你：在这个「制度达尔文主义」的世界里，普通人怎么活下去。  黑与灰：我们身边的地下世界黑市：违法的「地下网络」黑市不是一个有形的市场，而是一张隐蔽、分散、违法的交易网络。  线下黑市  地下钱庄：非法换汇、洗钱、高利借贷 走私&#x2F;销赃：烟酒、奢侈品、文物、野生动物、违禁品 假证&#x2F;票据：身份证、毕业证、发票、车牌 黄牛：热门票、医院号、稀缺资源高价倒卖   数字黑市（更隐蔽）  二手&#x2F;社交平台：用暗语卖虚拟资源、破解软件、代做服务、个...</div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://senchin.dpdns.org/media/avatar-o.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name" translate="no">無量 – Multitudinous</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCupYS-zTTlOHHENztxWXI_Q"><i class="fab fa-youtube"></i><span>订阅</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/MS4wLjABAAAATK9ov0UNhsGTPkNDu9xcJN3lCeG7TT3ZBQmbgvpQrDHqAL_-LxPyL_M4aXJ6tsAA" target="_blank" title="抖音"><i class="fa-brands fa-tiktok"></i></a><a class="social-icon" href="https://x.com/oxarlly" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a class="social-icon" href="mailto:jianhua37212022@gmail.com" target="_blank" title="邮箱"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">本站为个人博客，内容随缘更新。<br>感谢你的停留与喜欢。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/%E6%96%B9%E7%A8%8B%E5%BC%8F/" title="化学开荒指南·酸碱盐篇"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%96%B9%E7%A8%8B%E5%BC%8F/th.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="化学开荒指南·酸碱盐篇"/></a><div class="content"><a class="title" href="/blog/%E6%96%B9%E7%A8%8B%E5%BC%8F/" title="化学开荒指南·酸碱盐篇">化学开荒指南·酸碱盐篇</a><time datetime="2026-02-24T17:50:01.000Z" title="发表于 2026-02-24 17:50:01">2026-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/" title="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/th.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？"/></a><div class="content"><a class="title" href="/blog/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/" title="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？">看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？</a><time datetime="2026-02-14T08:09:17.000Z" title="发表于 2026-02-14 08:09:17">2026-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/%E8%BD%BB%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90%E3%80%8ADaylight%E3%80%8B%E9%9D%9E%E5%B8%B8%E6%B2%BB%E6%84%88%EF%BC%81/" title="轻音乐推荐《Daylight》非常治愈"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E8%BD%BB%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90%E3%80%8ADaylight%E3%80%8B%E9%9D%9E%E5%B8%B8%E6%B2%BB%E6%84%88%EF%BC%81/th.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="轻音乐推荐《Daylight》非常治愈"/></a><div class="content"><a class="title" href="/blog/%E8%BD%BB%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90%E3%80%8ADaylight%E3%80%8B%E9%9D%9E%E5%B8%B8%E6%B2%BB%E6%84%88%EF%BC%81/" title="轻音乐推荐《Daylight》非常治愈">轻音乐推荐《Daylight》非常治愈</a><time datetime="2025-10-06T00:00:00.000Z" title="发表于 2025-10-06 00:00:00">2025-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/%E6%AC%A1%E5%85%83%E7%9A%84%E7%BC%9D%E9%9A%99/" title="在次元的缝隙里，我只做忠于热爱的自己"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%AC%A1%E5%85%83%E7%9A%84%E7%BC%9D%E9%9A%99/th.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="在次元的缝隙里，我只做忠于热爱的自己"/></a><div class="content"><a class="title" href="/blog/%E6%AC%A1%E5%85%83%E7%9A%84%E7%BC%9D%E9%9A%99/" title="在次元的缝隙里，我只做忠于热爱的自己">在次元的缝隙里，我只做忠于热爱的自己</a><time datetime="2025-02-11T00:00:00.000Z" title="发表于 2025-02-11 00:00:00">2025-02-11</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83/"><span class="card-category-list-name">深度思考</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">笔记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/%E4%BA%8C%E6%AC%A1%E5%85%83/"><span class="card-category-list-name">二次元</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/"><span class="card-category-list-name">音乐推荐</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%83%85%E7%BB%AA/" style="font-size: 1.1em; color: #999">情绪</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 1.1em; color: #999">日常</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 1.1em; color: #999">音乐</a> <a href="/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 1.1em; color: #999">动漫</a> <a href="/tags/%E5%BC%80%E8%8D%92/" style="font-size: 1.1em; color: #999">开荒</a> <a href="/tags/%E6%B2%BB%E6%84%88/" style="font-size: 1.1em; color: #999">治愈</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%A7%82%E5%AF%9F/" style="font-size: 1.1em; color: #999">社会观察</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">4</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-08-13T00:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">4.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-02-28T21:57:04.316Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/media/bg.webp);"><div class="footer-flex"><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">关于我们</div><div class="footer-flex-content"><a href="/about/" target="_blank" title="关于">关于</a><a href="/link/" target="_blank" title="传送门">传送门</a></div></div></div><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">索引</div><div class="footer-flex-content"><a href="/archives/" target="_blank" title="归档">归档</a><a href="/categories/" target="_blank" title="分类">分类</a><a href="/tags/" target="_blank" title="标签">标签</a></div></div></div><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">支持</div><div class="footer-flex-content"><a href="https://www.jcp.or.jp/" target="_blank" title="日共">日共</a><a href="https://www.youtube.com/channel/UCqTymU8oHTygrEzas_gVBFg" target="_blank" title="星奈铃">星奈铃</a></div></div></div><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">举报</div><div class="footer-flex-content"><div>全国“扫黄打非”工作小组办公室</div><div>010-65233456  65212870</div><div>http://www.shdf.gov.cn/</div></div></div></div></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By <span translate="no">無量 – Multitudinous</span></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.4.3"></script><script src="/js/main.js?v=5.4.3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.17/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'data-lazy-src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'artalk-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getAvatarValue = async () => {
+    const predefinedAvatarCdn = ''
+    const predefinedAvatarDefault = ''
+
+    const avatarDefaultFormat = e => e.startsWith('d=') ? e : `d=${e}`
+
+    if (predefinedAvatarCdn && predefinedAvatarDefault) {
+      return { avatarCdn: predefinedAvatarCdn, avatarDefault: avatarDefaultFormat(predefinedAvatarDefault) }
+    }
+
+    try {
+      const res = await fetch('https://artalk.senchin.dpdns.org/api/v2/conf')
+      const result = await res.json()
+      const { mirror, params, default: defaults } = result.frontend_conf.gravatar
+      const avatarCdn = predefinedAvatarCdn || mirror
+      let avatarDefault = avatarDefaultFormat(predefinedAvatarDefault || params || defaults)
+      return { avatarCdn, avatarDefault}
+    } catch (e) {
+      console.error(e)
+      return { avatarCdn: predefinedAvatarCdn, avatarDefault: avatarDefaultFormat(predefinedAvatarDefault) }
+    }
+  }
+
+  const searchParams = new URLSearchParams({
+    'site_name': '千顷文化',
+    'limit': '10', // Fetch more comments to filter pending comments
+  })
+
+  const getComment = async (ele) => {
+    try {
+      const res = await fetch(`https://artalk.senchin.dpdns.org/api/v2/stats/latest_comments?${searchParams}`)
+      const result = await res.json()
+      const { avatarCdn, avatarDefault } = await getAvatarValue()
+      const artalk = result.data
+        .filter(e => !e.is_pending) // Filter pending comments
+        .slice(0, 5) // Limit the number of comments
+        .map(e => {
+          const avatar = avatarCdn && e.email_encrypted ? `${avatarCdn}${e.email_encrypted}?${avatarDefault}` : ''
+          return {
+            'avatar': avatar,
+            'content': changeContent(e.content_marked),
+            'nick': e.nick,
+            'url': e.page_url,
+            'date': e.date,
+          }
+        })
+      btf.saveToLocal.set(keyName, JSON.stringify(artalk), 10/(60*24))
+      generateHtml(artalk, ele)
+    } catch (e) {
+      console.log(e)
+      ele.textContent= "无法获取评论，请确认相关配置是否正确"
+    }
+  }
+
+  run(keyName, getComment)
+})</script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.4.3"></script></div></div></body></html>

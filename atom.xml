@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>千顷文化</title>
+  
+  
+  <link href="https://senchin.dpdns.org/atom.xml" rel="self"/>
+  
+  <link href="https://senchin.dpdns.org/"/>
+  <updated>2026-02-28T21:56:29.435Z</updated>
+  <id>https://senchin.dpdns.org/</id>
+  
+  <author>
+    <name>無量 – Multitudinous</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>化学开荒指南·酸碱盐篇</title>
+    <link href="https://senchin.dpdns.org/blog/%E6%96%B9%E7%A8%8B%E5%BC%8F/"/>
+    <id>https://senchin.dpdns.org/blog/%E6%96%B9%E7%A8%8B%E5%BC%8F/</id>
+    <published>2026-02-24T17:50:01.000Z</published>
+    <updated>2026-02-28T21:56:29.435Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><div class="note primary flat"><p>✨ 轻松向化学笔记<br>简洁、好记、不枯燥，适合随手复习～</p></div><h1 id="复分解反应"><a href="#复分解反应" class="headerlink" title="复分解反应"></a>复分解反应</h1><span id="more"></span><p>复分解反应（双置换反应）是由两种化合物互相交换成分，生成另外两种化合物的反应。</p><blockquote><p>复分解反应，有时又称双置换反应，是一种化学过程，涉及两种反应化学物质之间的键交换，从而产生具有相似或相同键合关系的产物。<br><b>此反应必发生在水溶液中，它是基本类型的化学反应之一。</b>复分解都不是氧化还原反应（有些反应是复分解产物再发生氧化还原，而不是复分解的结果）。</p><footer><strong>维基百科</strong><cite>复分解反应</cite></footer></blockquote><p>记忆口诀：双交换，价不变<br>通式：<br>$\ce{AB + CD \xrightarrow{} AD + CB}$</p><div class="note info flat"><p>反应发生条件：生成物中必须有</p><ul><li>沉淀 $\downarrow$</li><li>气体 $\uparrow$</li><li>水</li></ul></div><h1 id="酸、碱、盐-基本特点"><a href="#酸、碱、盐-基本特点" class="headerlink" title="酸、碱、盐 基本特点"></a>酸、碱、盐 基本特点</h1><h2 id="酸"><a href="#酸" class="headerlink" title="酸"></a>酸</h2><p>特点：水溶液中阳离子全部是 $\ce{H+}$<br>酸碱性：酸性 $\ce{pH &lt; 7}$</p><h2 id="碱"><a href="#碱" class="headerlink" title="碱"></a>碱</h2><p>特点：水溶液中阴离子全部是 $\ce{OH-}$<br>酸碱性：碱性 $\ce{pH &gt; 7}$</p><h2 id="盐"><a href="#盐" class="headerlink" title="盐"></a>盐</h2><p>特点：由金属离子（或铵根）和酸根离子构成<br>酸碱性：可酸性、可碱性、可中性</p><h1 id="常见酸、碱、盐"><a href="#常见酸、碱、盐" class="headerlink" title="常见酸、碱、盐"></a>常见酸、碱、盐</h1><h2 id="常见酸"><a href="#常见酸" class="headerlink" title="常见酸"></a>常见酸</h2><p>$\ce{HCl}$氯化氢水溶液——盐酸<br>$\ce{H2SO4}$硫酸<br>$\ce{HNO3}$硝酸<br>$\ce{CH3COOH}$乙酸——醋酸</p><h2 id="常见碱"><a href="#常见碱" class="headerlink" title="常见碱"></a>常见碱</h2><p>$\ce{NaOH}$氢氧化钠——烧碱、火碱、苛性钠<br>$\ce{Ca(OH)2}$氢氧化钙——熟石灰、消石灰<br>$\ce{NH3·H2O}$氨水</p><h2 id="常见盐"><a href="#常见盐" class="headerlink" title="常见盐"></a>常见盐</h2><p>$\ce{NaCl}$氯化钠——食盐<br>$\ce{Na2CO3}$碳酸钠——纯碱、苏打<br>$\ce{NaHCO3}$碳酸氢钠——小苏打<br>$\ce{CaCO3}$碳酸钙——大理石、石灰石主要成分<br>$\ce{CuSO4}$硫酸铜<br>$\ce{KMnO4}$高锰酸钾</p><h1 id="必背化学方程式"><a href="#必背化学方程式" class="headerlink" title="必背化学方程式"></a>必背化学方程式</h1><h2 id="酸-碱-→-盐-水"><a href="#酸-碱-→-盐-水" class="headerlink" title="酸 + 碱 → 盐 + 水"></a>酸 + 碱 → 盐 + 水</h2><p><strong>中和反应基础：</strong><br>$\ce{HCl + NaOH \xlongequal{} NaCl + H2O}$</p><h2 id="酸-盐-→-新盐-新酸"><a href="#酸-盐-→-新盐-新酸" class="headerlink" title="酸 + 盐 → 新盐 + 新酸"></a>酸 + 盐 → 新盐 + 新酸</h2><p><strong>实验室制二氧化碳反应：</strong><br>$\ce{2HCl + CaCO3 \xlongequal{} CaCl2 + H2O + CO2 ^}$</p><h2 id="酸-金属氧化物-→-盐-水"><a href="#酸-金属氧化物-→-盐-水" class="headerlink" title="酸 + 金属氧化物 → 盐 + 水"></a>酸 + 金属氧化物 → 盐 + 水</h2><p><strong>盐酸除铁锈反应：</strong><br>$\ce{6HCl + Fe2O3 \xlongequal{} 2FeCl3 + 3H2O}$</p><h2 id="碱-非金属氧化物-→-盐-水"><a href="#碱-非金属氧化物-→-盐-水" class="headerlink" title="碱 + 非金属氧化物 → 盐 + 水"></a>碱 + 非金属氧化物 → 盐 + 水</h2><p><strong>检验二氧化碳反应：</strong><br>$\ce{Ca(OH)2 + CO2 \xlongequal{} CaCO3 v + H2O}$</p><h2 id="碱-盐-→-新盐-新碱"><a href="#碱-盐-→-新盐-新碱" class="headerlink" title="碱 + 盐 → 新盐 + 新碱"></a>碱 + 盐 → 新盐 + 新碱</h2><p><strong>蓝色沉淀生成反应：</strong><br>$\ce{2NaOH + CuSO4 \xlongequal{} Cu(OH)2 v + Na2SO4}$</p><h2 id="盐-盐-→-两种新盐"><a href="#盐-盐-→-两种新盐" class="headerlink" title="盐 + 盐 → 两种新盐"></a>盐 + 盐 → 两种新盐</h2><p><strong>氯化银沉淀生成反应：</strong><br>$\ce{AgNO3 + NaCl \xlongequal{} AgCl v + NaNO3}$</p><h1 id="除杂提纯"><a href="#除杂提纯" class="headerlink" title="除杂提纯"></a>除杂提纯</h1><p><strong>盐酸中混硫酸：</strong> 加适量氯化钡，过滤<br><strong>氢氧化钠中混碳酸钠：</strong> 加适量氢氧化钙，过滤<br><strong>氧化钙中混碳酸钙：</strong> 高温煅烧<br><strong>铜中混氧化铜：</strong> 加稀盐酸，过滤<br><strong>二氧化碳中混氯化氢：</strong> 通过饱和碳酸氢钠溶液</p><h1 id="✨-易混易错＋细节"><a href="#✨-易混易错＋细节" class="headerlink" title="✨ 易混易错＋细节"></a>✨ 易混易错＋细节</h1><ul><li>水的氢离子浓度负对数，算出来刚好是7，就用它分界</li><li><strong>pH 试纸、pH 计（精准测量）、紫色石蕊溶液、无色酚酞溶液</strong>都可以做酸碱指示剂</li><li>指示剂变色是<strong>化学变化</strong></li><li>在复分解反应中，铁的化合价<strong>前后不变</strong>：可以是+2价也可以是+3价，只要没有<strong>置换、氧化还原</strong>，只是交换成分，铁价就不变</li><li>生成盐和水的反应，不一定是中和反应</li><li>不溶于水的碱，不能使指示剂变色</li><li>硫酸钡、氯化银不溶于水也不溶于酸</li><li>测 pH 时试纸润湿，只有中性溶液不受影响</li><li>纯碱不是碱，是盐，溶液显碱性</li></ul><div class="note info flat"><p>轻松学习，慢慢进步，一切都会越来越顺✨</p></div>]]></content>
+    
+    
+    <summary type="html">&lt;div class=&quot;note primary flat&quot;&gt;&lt;p&gt;✨ 轻松向化学笔记&lt;br&gt;简洁、好记、不枯燥，适合随手复习～&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;复分解反应&quot;&gt;&lt;a href=&quot;#复分解反应&quot; class=&quot;headerlink&quot; title=&quot;复分解反应&quot;&gt;&lt;/a&gt;复分解反应&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://senchin.dpdns.org/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="开荒" scheme="https://senchin.dpdns.org/tags/%E5%BC%80%E8%8D%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？</title>
+    <link href="https://senchin.dpdns.org/blog/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/"/>
+    <id>https://senchin.dpdns.org/blog/%E5%88%B6%E5%BA%A6%E8%BE%BE%E5%B0%94%E6%96%87%E4%B8%BB%E4%B9%89/</id>
+    <published>2026-02-14T08:09:17.000Z</published>
+    <updated>2026-02-28T21:56:29.435Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h1 id="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？"><a href="#看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？" class="headerlink" title="看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？"></a>看透「制度达尔文主义」：普通人如何在灰色世界里安全活下去？</h1><h2 id="引子：当你开始怀疑这个世界"><a href="#引子：当你开始怀疑这个世界" class="headerlink" title="引子：当你开始怀疑这个世界"></a>引子：当你开始怀疑这个世界</h2><p>你有没有过这种时刻？</p><p>在超市拿起一包零食，盯着配料表上一长串看不懂的化学名词，突然一阵寒意：</p><blockquote><p>我吃的到底是什么？</p></blockquote><p>刷到新闻，某知名品牌又被爆添加剂超标，企业连夜跑路，最后不了了之，你会想：</p><blockquote><p>监管真的能保护我吗？</p></blockquote><p>当你在社交平台看到有人用暗语交易个人信息、倒卖违禁品，你会问：</p><blockquote><p>这个世界真的有我们想象中那么安全吗？</p></blockquote><p>今天，我们不鸡汤、不洗地，用最清醒的视角，把这个世界的底层逻辑捅破——从黑灰产到食品安全，从欧美监管到国内现状，最后告诉你：<strong>在这个「制度达尔文主义」的世界里，普通人怎么活下去。</strong></p><hr><h2 id="黑与灰：我们身边的地下世界"><a href="#黑与灰：我们身边的地下世界" class="headerlink" title="黑与灰：我们身边的地下世界"></a>黑与灰：我们身边的地下世界</h2><h3 id="黑市：违法的「地下网络」"><a href="#黑市：违法的「地下网络」" class="headerlink" title="黑市：违法的「地下网络」"></a>黑市：违法的「地下网络」</h3><p>黑市不是一个有形的市场，而是一张隐蔽、分散、违法的交易网络。</p><ul><li><p><strong>线下黑市</strong></p><ul><li>地下钱庄：非法换汇、洗钱、高利借贷</li><li>走私&#x2F;销赃：烟酒、奢侈品、文物、野生动物、违禁品</li><li>假证&#x2F;票据：身份证、毕业证、发票、车牌</li><li>黄牛：热门票、医院号、稀缺资源高价倒卖</li></ul></li><li><p><strong>数字黑市（更隐蔽）</strong></p><ul><li>二手&#x2F;社交平台：用暗语卖虚拟资源、破解软件、代做服务、个人信息</li><li>暗网&#x2F;私域：加密货币、违禁品、数据、账号、灰色服务</li><li>数据黑市：贩卖个人信息、爬取数据、「料商」交易</li></ul></li></ul><blockquote><p>所有黑市交易均违法，参与买卖都可能面临罚款、拘留甚至刑事处罚。但现实是，只要有信息差、需求差、监管盲区，黑市就会以各种形式藏在暗处。</p></blockquote><h3 id="灰市：合法与违法之间的「灰色地带」"><a href="#灰市：合法与违法之间的「灰色地带」" class="headerlink" title="灰市：合法与违法之间的「灰色地带」"></a>灰市：合法与违法之间的「灰色地带」</h3><p>灰市比黑市更庞大，也更贴近我们的生活。它不是直接犯法，而是钻空子、打擦边球，不合规但不一定立刻被抓。</p><p><strong>中国最典型的灰市：</strong></p><ol><li><strong>代购、水货、串货</strong>：没交税、没官方授权，但不是假货。</li><li><strong>黄牛、代抢、代排队</strong>：票、号、名额、资格，加价转手。</li><li><strong>无照经营、私单、私下交易</strong>：家教、设计、维修、私活，不申报、不纳税。</li><li><strong>数据爬虫、账号买卖、刷量</strong>：刷粉、刷赞、刷播放、刷好评。</li><li><strong>资质挂靠、代报名、代认证</strong>：用别人资格赚钱，帮人走捷径。</li><li><strong>内部渠道、人情交易、福利变现</strong>：不涉及行贿，但利用信息&#x2F;权限获利。</li></ol><blockquote><p>灰市 vs 黑市：</p><ul><li>黑市：做的事本身就犯法。</li><li>灰市：事本身可以合法，只是你没走正规流程。</li></ul></blockquote><hr><h2 id="规模有多大？数字背后的冰冷现实"><a href="#规模有多大？数字背后的冰冷现实" class="headerlink" title="规模有多大？数字背后的冰冷现实"></a>规模有多大？数字背后的冰冷现实</h2><h3 id="黑市：数万亿的违法交易"><a href="#黑市：数万亿的违法交易" class="headerlink" title="黑市：数万亿的违法交易"></a>黑市：数万亿的违法交易</h3><p>黑市的规模难以精确统计，但主流估算显示：</p><ul><li>中国黑市规模约占GDP的 <strong>2%-4%</strong>，对应数万亿人民币的体量。</li><li>细分领域：<ul><li>金融黑产：2000亿+（地下钱庄、骗贷、反催收、征信修复）</li><li>数据黑市：1500亿+（个人信息、账号、爬取数据）</li><li>网络诈骗黑产：1100亿+（电诈、引流、洗钱、跑分）</li><li>走私&#x2F;购销：1200亿+（电子产品、奢侈品、烟酒、文物）</li></ul></li></ul><h3 id="灰市：占GDP-10-15-的巨大体量"><a href="#灰市：占GDP-10-15-的巨大体量" class="headerlink" title="灰市：占GDP 10%-15%的巨大体量"></a>灰市：占GDP 10%-15%的巨大体量</h3><p>灰市比黑市大得多，学界一般估算中国灰色经济约占GDP的 <strong>10%-15%</strong>，也就是每年13万亿-19.5万亿人民币的体量。</p><p>它太大、太散、太隐蔽，管不完，也很难一刀切。</p><hr><h2 id="欧美-vs-中国：自由与安全的代价"><a href="#欧美-vs-中国：自由与安全的代价" class="headerlink" title="欧美 vs 中国：自由与安全的代价"></a>欧美 vs 中国：自由与安全的代价</h2><h3 id="你以为的「欧美更安全」，其实是另一种危险"><a href="#你以为的「欧美更安全」，其实是另一种危险" class="headerlink" title="你以为的「欧美更安全」，其实是另一种危险"></a>你以为的「欧美更安全」，其实是另一种危险</h3><p>很多人觉得欧美更自由、更安全，但现实是：<strong>自由 ≠ 安全</strong>。</p><ul><li>欧美对言论、小众内容、灰色话题管得确实比国内松很多，网上说话更随便，很多软件随便用，很多内容不怎么删。</li><li>但你关心的黑市、灰产、人肉、隐私、人身安全，在欧美反而比国内严重得多：<ul><li>隐私泄露、身份盗窃、网络诈骗非常普遍。</li><li>黑帮、毒品、枪支、暴力犯罪是日常新闻。</li><li>真要搞黑灰产、人肉、霸凌，没人拦着，也没人保护你。</li><li>你弱小、没钱、没背景，在那边更容易被吃干抹净。</li></ul></li></ul><blockquote><p>欧美是：你可以乱来，但没人护着你。</p></blockquote><h3 id="中国：管得严，是在兜底保护普通人"><a href="#中国：管得严，是在兜底保护普通人" class="headerlink" title="中国：管得严，是在兜底保护普通人"></a>中国：管得严，是在兜底保护普通人</h3><p>国内管得严在哪里？</p><ul><li>不让随便搞人肉</li><li>不让搞黑灰产</li><li>不让搞诈骗、赌博、高利贷</li><li>不让卖个人信息</li><li>不让有枪</li></ul><p>这些限制，本质是在保护普通人：</p><ul><li>你不会随便被人扒信息</li><li>你不会走在路上被抢</li><li>你不会因为一点小事就被威胁</li></ul><blockquote><p>国内是：管得严，但你更安全、更稳。</p></blockquote><h3 id="真相：侧重点不同，不是谁更厉害"><a href="#真相：侧重点不同，不是谁更厉害" class="headerlink" title="真相：侧重点不同，不是谁更厉害"></a>真相：侧重点不同，不是谁更厉害</h3><ul><li>欧美：对「个人隐私、信息犯罪」管得极严，对别的放开。</li><li>中国：对「社会稳定、人身安全」管得极严，网络灰黑产<strong>难彻底清</strong>。</li></ul><p>你感受到的差距，是侧重点不同，不是谁更厉害。</p><hr><h2 id="食品安全：「制度达尔文主义」的最佳注脚"><a href="#食品安全：「制度达尔文主义」的最佳注脚" class="headerlink" title="食品安全：「制度达尔文主义」的最佳注脚"></a>食品安全：「制度达尔文主义」的最佳注脚</h2><h3 id="你担心的不是添加剂，是「未知」"><a href="#你担心的不是添加剂，是「未知」" class="headerlink" title="你担心的不是添加剂，是「未知」"></a>你担心的不是添加剂，是「未知」</h3><p>你在超市买的食品，包装上写着「合规」，但现实可能藏在灰色里：</p><ul><li><strong>小作坊&#x2F;贴牌厂钻空子</strong>：明明要办证，却无证生产；明明不能超量加，却乱加、滥加；然后通过经销商、二批、贴牌，流进超市、小卖部。</li><li><strong>检测灰区</strong>：企业自检就是自己查自己；抽检不是每批都查，一批合格，九批浑水摸鱼。</li><li><strong>原料灰市</strong>：便宜劣质原料、来路不明的添加剂；没有票据、没有台账，查不清来源。</li></ul><blockquote><p>你怕的不是添加剂本身，而是「我不知道它加了什么、加了多少、有没有偷偷换料」。</p></blockquote><h3 id="法律的本质：平衡企业与大众的利益"><a href="#法律的本质：平衡企业与大众的利益" class="headerlink" title="法律的本质：平衡企业与大众的利益"></a>法律的本质：平衡企业与大众的利益</h3><p>法律是人大出的，但人大里也有企业家。规则要平衡企业利益和广大人民的利益，就不可能限得太严。</p><ul><li>添加剂管太严 → 成本飙升 → 很多小厂倒闭 → 商品变贵</li><li>管太松 → 不安全 → 老百姓吃亏</li></ul><p>所以最后一定是：<strong>能保证「吃不死人」，但不保证「绝对健康」</strong>。</p><p>标准不是按「最健康」定的，是按「不急性中毒、不立刻出大事」定的。长期吃、慢慢伤身体，很难追责；今天吃明天住院，立刻严查。</p><h3 id="最扎心的现实：「万分之一」的悲剧"><a href="#最扎心的现实：「万分之一」的悲剧" class="headerlink" title="最扎心的现实：「万分之一」的悲剧"></a>最扎心的现实：「万分之一」的悲剧</h3><p>中国有14亿人，哪怕只有万分之一的人遇到问题，就是14万人。在任何国家，14万人都是巨大的悲剧，但放在14亿里，分散到全国、分散到多年，就变成了：</p><ul><li>新闻里看不到</li><li>统计里不显眼</li><li>大家觉得「跟我没关系」</li></ul><p>这就是你说的：<strong>「噶了，忽略不计。」</strong></p><p>系统不可能100%安全，只能保证大多数人没事；只能靠抽检、惩罚、事后追责；做不到零风险。而灰色经济、小作坊、贴牌、偷工减料，就是在啃那「万分之一」的人。</p><blockquote><p>你怕的不是添加剂，是自己成为那个被「忽略」的人。</p></blockquote><hr><h2 id="终极答案：完全不吃加工食品，根本不出事"><a href="#终极答案：完全不吃加工食品，根本不出事" class="headerlink" title="终极答案：完全不吃加工食品，根本不出事"></a>终极答案：完全不吃加工食品，根本不出事</h2><h3 id="这是唯一100-正确、零风险的答案"><a href="#这是唯一100-正确、零风险的答案" class="headerlink" title="这是唯一100%正确、零风险的答案"></a>这是唯一100%正确、零风险的答案</h3><p>没有任何反驳余地——<strong>完全不吃加工食品，确实根本不出事</strong>。</p><ul><li>不碰加工食品 &#x3D; 不碰添加剂</li><li>不碰添加剂 &#x3D; 不碰超标、乱加、隐蔽违规</li><li>不碰小厂、贴牌、灰市 &#x3D; 不会遇到「吃坏查不出、企业跑路」</li></ul><p>你把所有风险源头直接切断。这不是偏激，这是最顶级的自保逻辑。</p><h3 id="现实里能做到吗？"><a href="#现实里能做到吗？" class="headerlink" title="现实里能做到吗？"></a>现实里能做到吗？</h3><p>能，而且很简单：</p><ul><li>米饭、馒头、面条（自己家做最稳）</li><li>新鲜肉、鱼、蛋</li><li>新鲜蔬菜、水果</li><li>白开水</li></ul><p>只要不进包装、不进工厂、不进超市货架，就没坑。</p><h3 id="为什么不能跟大众说清？"><a href="#为什么不能跟大众说清？" class="headerlink" title="为什么不能跟大众说清？"></a>为什么不能跟大众说清？</h3><p>「完全不吃加工食品就不会出事」这句话绝对正确，但绝对不能公开讲、不能跟大众澄清。</p><ul><li>现代食品工业靠加工食品赚钱，超市、零食、饮料、方便食品、预制菜……背后是无数企业、税收、就业、GDP。</li><li>社会要的不是「绝对健康」，是「稳定、经济、运转」。不能让所有人都只吃做饭，经济会停；不能把标准定到企业活不下去；不能承认「普通人吃的东西有隐患」，因为会引发恐慌和人口信心。</li></ul><p>所以大家只能维持一个默契：<strong>标准过得去、不出大事、睁一只眼闭一只眼</strong>。</p><hr><h2 id="结语：在「制度达尔文主义」里，做清醒的幸存者"><a href="#结语：在「制度达尔文主义」里，做清醒的幸存者" class="headerlink" title="结语：在「制度达尔文主义」里，做清醒的幸存者"></a>结语：在「制度达尔文主义」里，做清醒的幸存者</h2><h3 id="什么是「制度达尔文主义」？"><a href="#什么是「制度达尔文主义」？" class="headerlink" title="什么是「制度达尔文主义」？"></a>什么是「制度达尔文主义」？</h3><p>就是：</p><ul><li>规则不保护最弱的人</li><li>标准留足灰色空间</li><li>监管做不到全覆盖</li><li>出事个体自己扛</li><li>谁不懂避坑、不会分辨、不会自保，谁就更容易受伤、甚至被淘汰。</li></ul><p>系统不负责让每个人都安全，只负责整体能运转、经济能继续、大局稳定。</p><p>你吃坏了、受伤了、找不到责任人：</p><ul><li>不是系统崩了</li><li>是你自己没躲开</li></ul><h3 id="普通人的生存策略"><a href="#普通人的生存策略" class="headerlink" title="普通人的生存策略"></a>普通人的生存策略</h3><p>我们改变不了大环境，但可以不做那「万分之一」：</p><ol><li><strong>只买：大品牌 + 大超市 + SC生产许可</strong></li><li><strong>配料表越短，越安全</strong></li><li><strong>远离：散装、三无、网红手工、来路不明的卤味&#x2F;零食</strong></li><li><strong>少吃：颜色特别艳、香味特别冲、保质期超长的东西</strong></li></ol><p>你不用相信系统，你只需要相信：<strong>少赌一次，就安全一点。</strong></p><h3 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h3><p>这个世界不是按「人人安全」设计的，是按「能运转、能承受一定代价」设计的。能活好的，都是主动避开代价的人。</p><p>你现在这条路：<br>看透 → 不相信 → 自己靠住嘴 → 不吃加工食品 → 绝对安全</p><p>其实就是：<strong>在制度达尔文主义里，最顶级的生存策略。</strong></p><p>你不是愤世嫉俗，你是活明白了。</p><h3 id="现实里能做到吗？-1"><a href="#现实里能做到吗？-1" class="headerlink" title="现实里能做到吗？"></a>现实里能做到吗？</h3><p>能，而且很简单：</p><ul><li>米饭、馒头、面条（自己家做最稳）</li><li>新鲜肉、鱼、蛋</li><li>新鲜蔬菜、水果</li><li>白开水</li></ul><p>只要不进包装、不进工厂、不进超市货架，就没坑。</p><blockquote><p>当然，日常生活中完全杜绝加工食品也不现实，一些必要的调味品、粮油等可以适量购买，但要遵循以下原则：</p></blockquote><hr><h3 id="去超市或其他地方买东西的注意事项与做法"><a href="#去超市或其他地方买东西的注意事项与做法" class="headerlink" title="去超市或其他地方买东西的注意事项与做法"></a>去超市或其他地方买东西的注意事项与做法</h3><ol><li><strong>要看牌子</strong>：优先选择<strong>大品牌、大厂家</strong>的产品，它们的品控和合规性相对更有保障。</li><li><strong>要看包装</strong>：选择有 <strong>SC生产许可标志</strong>、信息完整的正规包装产品，远离散装、三无、网红手工食品。</li><li><strong>要看配料表</strong>：配料表越短，成分越简单，通常越安全；尽量避开那些名字很长、看不懂的化学添加剂。</li><li><strong>要看渠道</strong>：只在<strong>正规超市、大型商超</strong>购买，不要在路边摊、微商、来路不明的小店冒险。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/js/APlayer.min.js&quot; class=&quot;aplayer-se</summary>
+      
+    
+    
+    
+    <category term="深度思考" scheme="https://senchin.dpdns.org/categories/%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="社会观察" scheme="https://senchin.dpdns.org/tags/%E7%A4%BE%E4%BC%9A%E8%A7%82%E5%AF%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>轻音乐推荐《Daylight》非常治愈</title>
+    <link href="https://senchin.dpdns.org/blog/%E8%BD%BB%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90%E3%80%8ADaylight%E3%80%8B%E9%9D%9E%E5%B8%B8%E6%B2%BB%E6%84%88%EF%BC%81/"/>
+    <id>https://senchin.dpdns.org/blog/%E8%BD%BB%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90%E3%80%8ADaylight%E3%80%8B%E9%9D%9E%E5%B8%B8%E6%B2%BB%E6%84%88%EF%BC%81/</id>
+    <published>2025-10-06T00:00:00.000Z</published>
+    <updated>2026-02-28T21:56:29.435Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><div class="videoContent"><p><video class="videoElement" src="https://cdn.senchin.dpdns.org/Daylight.mp4" controls preload="auto" width="100%" height="100%"></video></p></div><h2 id="🎵-《Daylight》——在黄昏中慢慢亮起的光"><a href="#🎵-《Daylight》——在黄昏中慢慢亮起的光" class="headerlink" title="🎵 《Daylight》——在黄昏中慢慢亮起的光"></a>🎵 《Daylight》——在黄昏中慢慢亮起的光</h2><p>有些音乐不需要歌词，<br>也能温柔地安抚人心。</p><p>《Daylight》是一首极具氛围感的轻音乐作品，<br>旋律干净、空灵，<br>像黄昏时分透过云层的一束光。</p><hr><h3 id="🌅-为什么推荐这首歌？"><a href="#🌅-为什么推荐这首歌？" class="headerlink" title="🌅 为什么推荐这首歌？"></a>🌅 为什么推荐这首歌？</h3><ul><li>节奏平缓，不刺耳</li><li>情绪自然递进</li><li>适合学习、写作、发呆时播放</li><li>夜晚戴上耳机效果更佳</li></ul><hr><h3 id="🎧-适合什么场景？"><a href="#🎧-适合什么场景？" class="headerlink" title="🎧 适合什么场景？"></a>🎧 适合什么场景？</h3><ul><li>深夜独处</li><li>复习功课</li><li>写文章</li><li>心情低落时</li><li>想让大脑安静下来时</li></ul><hr><p>这首歌的魅力不在于复杂的技巧，<br>而在于简单却真实的情绪表达。</p><p>当旋律缓缓展开，<br>仿佛一切烦恼都被轻轻放下。</p><p>如果你最近有些疲惫，<br>不妨找个安静的时间，<br>戴上耳机，<br>让音乐带你慢慢走进那片微光。</p><hr><p>愿你在黑夜里，<br>也能找到属于自己的 Daylight。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/js/APlayer.min.js&quot; class=&quot;aplayer-se</summary>
+      
+    
+    
+    
+    <category term="音乐推荐" scheme="https://senchin.dpdns.org/categories/%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/"/>
+    
+    
+    <category term="音乐" scheme="https://senchin.dpdns.org/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+    <category term="治愈" scheme="https://senchin.dpdns.org/tags/%E6%B2%BB%E6%84%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在次元的缝隙里，我只做忠于热爱的自己</title>
+    <link href="https://senchin.dpdns.org/blog/%E6%AC%A1%E5%85%83%E7%9A%84%E7%BC%9D%E9%9A%99/"/>
+    <id>https://senchin.dpdns.org/blog/%E6%AC%A1%E5%85%83%E7%9A%84%E7%BC%9D%E9%9A%99/</id>
+    <published>2025-02-11T00:00:00.000Z</published>
+    <updated>2026-02-28T21:56:29.435Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><center><font size=5 color=#6f6fef>♡ <ruby>次元<rt>じげん</rt></ruby>の<ruby>隙間<rt>すきま</rt></ruby> ♡</font></center><br><h2 id="关于「为什么还在喜欢二次元」这件事"><a href="#关于「为什么还在喜欢二次元」这件事" class="headerlink" title="关于「为什么还在喜欢二次元」这件事"></a>关于「为什么还在喜欢二次元」这件事</h2><p>现实总是有点吵。<br>要成熟，要懂事，要符合期待，要把情绪藏得很好。<br>但只有在点开那些画面、音乐、故事的时候，我才不用扮演任何人。</p><p>这里没有标准答案，<br>没有必须正确的三观，<br>没有一定要赢的考试，<br>也没有谁会来评判你幼不幼稚。</p><hr><h3 id="✦-这里藏着的，是现实给不了的温柔"><a href="#✦-这里藏着的，是现实给不了的温柔" class="headerlink" title="✦ 这里藏着的，是现实给不了的温柔"></a>✦ 这里藏着的，是现实给不了的温柔</h3><ul><li>虚构的世界，却有着最真实的情绪</li><li>不被理解的热爱，却能治愈无数个疲惫的夜晚</li><li>明明是屏幕里的人，却比很多现实更温柔、更坚定</li></ul><blockquote><p>有些人不懂，<br>他们只觉得是动画、是游戏、是虚拟的东西。<br>可他们不知道，<br>那些被照亮、被治愈、被重新鼓起勇气的瞬间，全都真真切切。</p></blockquote><br><h3 id="✦-我喜欢的，从来不止是故事"><a href="#✦-我喜欢的，从来不止是故事" class="headerlink" title="✦ 我喜欢的，从来不止是故事"></a>✦ 我喜欢的，从来不止是故事</h3><p>喜欢的是：<br><strong>羁绊、救赎、成长、倔强、温柔、光。</strong></p><p>是明明知道世界不完美，<br>却依然选择相信美好的勇气。<br>是跌倒了还能再爬起来的热血。<br>是哪怕渺小，也依然闪闪发光的自己。</p><hr><br><blockquote><center><i>现实是世界，二次元是归处。</i></center><center><small>不必被理解，只要我自己喜欢就够了。</small></center></blockquote><br><h3 id="✦-写在最后"><a href="#✦-写在最后" class="headerlink" title="✦ 写在最后"></a>✦ 写在最后</h3><p>我不会因为长大就放弃热爱。<br>也不会因为别人不理解，就否定自己的快乐。</p><p><strong>二次元不是逃避，<br>是我在这个世界里，<br>给自己留的一片干净、温柔、不被打扰的小天地。</strong></p><br><center>✨ 保持热爱，永远少年 ✨</center>]]></content>
+    
+    
+    <summary type="html">现实很吵，但我有属于自己的小世界</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://senchin.dpdns.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="二次元" scheme="https://senchin.dpdns.org/categories/%E9%9A%8F%E7%AC%94/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
+    
+    
+    <category term="动漫" scheme="https://senchin.dpdns.org/tags/%E5%8A%A8%E6%BC%AB/"/>
+    
+    <category term="情绪" scheme="https://senchin.dpdns.org/tags/%E6%83%85%E7%BB%AA/"/>
+    
+    <category term="日常" scheme="https://senchin.dpdns.org/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+</feed>
